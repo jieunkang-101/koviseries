@@ -1,19 +1,18 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+// import { StyleSheet, Text, View } from 'react-native';
+import { AppLoading } from 'expo';
+import { AppLoading } from 'expo';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+  const [isReady, setIsReady] = useState(false);
+  const loadAssets = async () => {};
+  const onFinish = () => setIsReady(true);
+  return isReady ? null : (
+    <AppLoading   
+      startAsync={loadAssets} 
+      onFinish={onFinish} 
+      onError={console.error} 
+    />
+  );  
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

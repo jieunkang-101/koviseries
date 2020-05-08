@@ -61,7 +61,7 @@ The product will offer search functionality.
 </details>  
 
 ### :small_orange_diamond: Component Diagram 
-  <img src="./assets/diagram.jpg" alt="Application Component Tree" width= "960px" /> 
+  <img src="./assets/diagram.jpg" alt="Application Component Tree" width= "800px" /> 
 
 
 ## 3. Get Started  
