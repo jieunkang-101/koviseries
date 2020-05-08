@@ -79,7 +79,8 @@ The product will offer search functionality.
 
 
 ## 4. Technologies Used:
-+ [ReactJs](https://reactjs.org/) 
++ [React Native](https://reactnative.dev/) 
++ [Expo](https://docs.expo.io/)
 + [Redux 4.0.5](https://redux.js.org/)
 + [React Redux 7.1.3](https://react-redux.js.org/)
 + [npm](https://www.npmjs.com/) 
