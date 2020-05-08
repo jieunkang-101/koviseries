@@ -61,7 +61,7 @@ The product will offer search functionality.
 </details>  
 
 ### :small_orange_diamond: Component Diagram 
-  <img src="./assets/diagram.jpg" alt="Application Component Tree" width= "800px" /> 
+  <img src="./assets/diagram.jpg" alt="Application Component Tree" width= "640px" /> 
 
 
 ## 3. Get Started  
@@ -70,8 +70,8 @@ The product will offer search functionality.
 
 ### :small_orange_diamond: Installation
 ```
-  $ git clone https://github.com/jieunkang-101/Koviseries
-  $ cd Koviseries
+  $ git clone https://github.com/jieunkang-101/koviseries
+  $ cd koviseries
   $ npm install  
   $ npm run start
 ```
