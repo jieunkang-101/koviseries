@@ -30,6 +30,7 @@ The product will be able to display movies and TV shows that are now playing, po
 The product will offer search functionality.
 
 (Users will be able to sign-up, login, and sign-out. Users can mark as a favorite movie or TV show and see them on their favorite list.)
+</details>
 
 ### :small_orange_diamond: Minimum-Viable Product
 * App for an Android 
@@ -57,9 +58,10 @@ The product will offer search functionality.
 ### :small_orange_diamond: Specs
 <details>
   <summary>User stories and specifications</summary>
+</details>  
 
 ### :small_orange_diamond: Component Diagram 
-  <img src="src/img/diagram.jpg" alt="Application Component Tree" width= "640px" /> 
+  <img src="src/img/diagram.jpg" alt="Application Component Tree" width= "960px" /> 
 
 
 ## 3. Get Started  
@@ -90,7 +92,7 @@ The product will offer search functionality.
 + [bootstrap 4.4.1](https://getbootstrap.com/)
 
 
-## 4. Support and contact details
+## 5. Support and Contact
 If you have any feedback or concerns, please contact one of the contributors.
 
 ### License
