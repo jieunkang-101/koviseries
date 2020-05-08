@@ -16,6 +16,7 @@ The product will offer search functionality.
 * List of movies and TV shows (from API call)
 * Detail view of a specific movie or TV show
 * Capability to search by title
+* Capability to add and display favorite movies or TV shows (without user authentication)
 
 
 #### Tools for MVP
