@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Movies from "../screens/Movies";
 import Tv from "../screens/Tv";
@@ -7,18 +7,14 @@ import Favs from "../screens/Favs";
 
 const Tabs = createBottomTabNavigator();
 
-// export default ({navigation}) => {
-//   console.log(navigation);
-//   navigation.setOptions({ title: "Hello"});
-//   setTimeout(() => navigation.setOptions({ title: "Hello"}), 1000 );
-//   setTimeout(() => navigation.setOptions({ title: "Bye bye"}), 2000 );
-//   setTimeout(() => navigation.setOptions({ title: "Hello again"}), 3000 );
+const getHeaderName = (route) =>
+  route?.state?.routeNames[route.state.index] || "Movies";
 
-
-export default ({route}) => {  
-  useEffect(() => {
-    console.log("the route changed");
-  }, [route])
+export default ({ navigation, route}) => {  
+  useLayoutEffect(() => {
+    const name = getHeaderName(route);
+    navigation.setOptions({ title: name });
+  }, [route]);
  
   return (
   <Tabs.Navigator>
