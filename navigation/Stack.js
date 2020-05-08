@@ -7,8 +7,19 @@ import Detail from "../screens/Detail";
 const Stack = createStackNavigator();
 
 export default () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tab" component={Tabs} />
+  <Stack.Navigator
+    // mode="modal"
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "black",
+        borderBottomColor: "black",
+        shadowColor: "black"
+      },
+      headerTintColor: "#FFFFFF",
+      headerBackTitleVisible: false,
+    }}
+  >
+    <Stack.Screen name="Tab" component={Tabs} options={{gestureEnabled: true}} />
     <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 )

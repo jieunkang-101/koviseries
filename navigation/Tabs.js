@@ -13,7 +13,13 @@ const getHeaderName = (route) =>
 export default ({ navigation, route}) => {  
   useLayoutEffect(() => {
     const name = getHeaderName(route);
-    navigation.setOptions({ title: name });
+    navigation.setOptions({ 
+      title: name, 
+      // headerShown: name !== "TV",
+      // headerStyle: {
+      //   backgroundColor: name === "Favs" ? "blue" : "white"
+      // }
+    });  
   }, [route]);
  
   return (
