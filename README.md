@@ -83,8 +83,10 @@ The product will offer search functionality.
 ## 4. Technologies Used:
 + [React Native](https://reactnative.dev/) 
 + [Expo](https://docs.expo.io/)
-+ [Redux 4.0.5](https://redux.js.org/)
-+ [React Redux 7.1.3](https://react-redux.js.org/)
++ [React Navigation v.5.2.6](https://reactnavigation.org/)
++ [@Expo/vector-icons]
+<!-- + [Redux 4.0.5](https://redux.js.org/)
++ [React Redux 7.1.3](https://react-redux.js.org/) -->
 + [npm](https://www.npmjs.com/) 
 + [Webpack](https://webpack.js.org/)
 + [Firebase](https://firebase.google.com/)

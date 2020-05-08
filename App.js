@@ -4,6 +4,8 @@ import { AppLoading } from 'expo';
 import { Asset } from "expo-asset";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import Stack from "./navigation/Stack";
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
@@ -29,9 +31,12 @@ export default function App() {
   const onFinish = () => setIsReady(true);
 
   return isReady ? (
-    <View style={{ flex: 1 }}>
-      <Image source={require('./assets/splash.jpg')} />
-    </View>
+    // <View style={{ flex: 1 }}>
+    //   <Image source={require('./assets/splash.jpg')} />
+    // </View>
+    <NavigationContainer>
+      <Stack />
+    </NavigationContainer>
   ) : (
     <AppLoading   
       startAsync={cacheResourcesAsync} 
