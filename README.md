@@ -85,14 +85,14 @@ The product will offer search functionality.
 + [React Native](https://reactnative.dev/) 
 + [Expo](https://docs.expo.io/)
 + [React Navigation v.5.2.6](https://reactnavigation.org/)
-+ [@Expo/vector-icons]
-<!-- + [Redux 4.0.5](https://redux.js.org/)
-+ [React Redux 7.1.3](https://react-redux.js.org/) -->
++ [@Expo/vector-icons](https://docs.expo.io/guides/icons/)
++ [axios](https://github.com/axios/axios)
 + [npm](https://www.npmjs.com/) 
 + [Webpack](https://webpack.js.org/)
 + [Firebase](https://firebase.google.com/)
 + [Firestore](https://firebase.google.com/docs/firestore)
 + [bootstrap 4.4.1](https://getbootstrap.com/)
+
 
 
 ## 5. Support and Contact

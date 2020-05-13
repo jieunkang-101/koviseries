@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import Stack from "./navigation/Stack";
-
+ 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
 
