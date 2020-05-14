@@ -9,7 +9,7 @@
 //     </View>
 //   )
 // };
-
+   
 import React, { useEffect, useState } from "react";
 import { movieApi,tvApi } from "../api";
 import { View, Text } from "react-native";
@@ -22,11 +22,21 @@ export default () => {
   });
 
   const getData = async () => {
-
-    const results = await movieApi.upcoming();
-    // const results = await tvApi.popular();
-    console.log(results);
+    try {
+      const { 
+        data: { results } 
+      } = await movieApi.nowPlaying();
+      setNowPlaying({
+        movies: results,
+        error: null
+      })
+    } catch(e) {
+      setNowPlaying({
+        error: e
+      })
+    }   
   }
+  console.log(nowPlaying); 
 
   useEffect(() => {
     getData();
