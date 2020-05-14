@@ -15,34 +15,20 @@ import { movieApi,tvApi } from "../api";
 import { View, Text } from "react-native";
 
 export default () => {
- 
-  // const [nowPlaying, setNowPlaying] = useState({
-  //   movies: [],
-  //   error: null
-  // });
 
-  // const getData = async () => {
-  //   const { data } = await movieApi.nowPlaying();
-  //   console.log(data);
-  //   try {
-  //     const { 
-  //       data: { results } 
-  //     } = await movieApi.nowPlaying();
-  //     setNowPlaying({
-  //       movies: results,
-  //       error: null
-  //     })
-  //   } catch(e) {
-  //     setNowPlaying({
-  //       error: e
-  //     })
-  //   }   
-  // }
-  // console.log(nowPlaying); 
+  const [nowPlaying, setNowPlaying] = useState();
+  const [popular, setPopular] = useState();
+  const [movie, setMovie] = useState();
 
   const getData = async () => {
-    const [nowPlaying, error] = await movieApi.nowPlaying();
-    console.log(nowPlaying, error);
+    const [nowPlaying, nowPlyingError] = await movieApi.nowPlaying();
+    setNowPlaying(nowPlaying);
+    console.log(nowPlaying);
+    const [popular, popularError] = await movieApi.popular();
+    setPopular(popular);
+    const [movie, movieError] = await movieApi.movie(496243);
+    setMovie(movie);
+    console.log(movie, movieError);
   }
 
   useEffect(() => {

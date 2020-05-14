@@ -7,7 +7,7 @@ const makeRequest = (path, params) =>
     axios.get(`https://api.themoviedb.org/3${path}`, {
       params: {
         ...params,
-        page: 2, 
+        page: 1, 
         api_key: TMDB_KEY
       }
   })
@@ -27,29 +27,14 @@ const makeRequest = (path, params) =>
 //   }))
 
 
-// const getResult = async (path, params = {}) => {
-//   try {
-//     const {
-//       data: { results },
-//       data
-//     } = await makeRequest(path, params);
-//     console.log(data);
-//     data 
-    
-//     return [results || data, null];
-//   } catch (e) {
-//     console.log(e);
-//     return [null, e];
-//   }
-// };
-
-
 const getResults = async (path, params = {}) => {
   try {
     const {
-      data: { results }
+      data: { results }, 
+      data        //movie(id)'s data doesn't have "results" object
     } = await makeRequest(path, params);
-    return [results, null];
+    // console.log(data)
+    return [results || data, null];
   } catch (e) {
     console.log(e);
     return [null, e];
@@ -57,7 +42,7 @@ const getResults = async (path, params = {}) => {
 };
 
 export const movieApi = {
-  nowPlaying: () => getResults("/movie/now_playing", { with_original_language: "ko" }),
+  nowPlaying: () => getResults("/movie/now_playing", { with_original_language: "ko", without_genres: 10749 }),
   popular: () => getResults("/movie/popular", { with_original_language: "ko", sort_by: "popularity.desc", without_genres: 10749 }),
   upcoming: () => getResults("/movie/upcoming", { with_original_language: "ko", sort_by: "release_date.asc" }),
   search: query => getResults("/search/movie", { query }),
