@@ -44,35 +44,32 @@ const makeRequest = (path, params) =>
 // };
 
 
-// const getResult = async (path, params = {}) => {
-//   try {
-//     const {
-//       data: { results },
-//       data
-//     } = await makeRequest(path, params);
-//     console.log(data);
-//     data 
-//     return [results || data, null];
-//   } catch (e) {
-//     console.log(e);
-//     return [null, e];
-//   }
-// };
+const getResults = async (path, params = {}) => {
+  try {
+    const {
+      data: { results }
+    } = await makeRequest(path, params);
+    return [results, null];
+  } catch (e) {
+    console.log(e);
+    return [null, e];
+  }
+};
 
 export const movieApi = {
-  nowPlaying: () => makeRequest("/movie/now_playing", { with_original_language: "ko" }),
-  popular: () => getResult("/movie/popular", { with_original_language: "ko", sort_by: "popularity.desc", without_genres: 10749 }),
-  upcoming: () => getResult("/movie/upcoming", { with_original_language: "ko", sort_by: "release_date.asc" }),
-  search: query => getResult("/search/movie", { query }),
-  movie: id => getResult(`/movie/${id}`, { append_to_response: "videos" })
+  nowPlaying: () => getResults("/movie/now_playing", { with_original_language: "ko" }),
+  popular: () => getResults("/movie/popular", { with_original_language: "ko", sort_by: "popularity.desc", without_genres: 10749 }),
+  upcoming: () => getResults("/movie/upcoming", { with_original_language: "ko", sort_by: "release_date.asc" }),
+  search: query => getResults("/search/movie", { query }),
+  movie: id => getResults(`/movie/${id}`, { append_to_response: "videos" })
 };
 
 export const tvApi = {
-  today: () => getResult("/tv/airing_today", { with_original_language: "ko" } ),
-  thisWeek: () => getResult("/tv/on_the_air", { with_original_language: "ko" }),
-  topRated: () => getResult("/tv/top_rated", { with_original_language: "ko" }),
-  popular: () => getResult("/tv/popular", { with_original_language: "ko" }),
-  search: query => getResult("/search/tv", { query }),
-  show: id => getResult(`/tv/${id}`, { append_to_response: "videos" })
+  today: () => getResults("/tv/airing_today", { with_original_language: "ko" } ),
+  thisWeek: () => getResults("/tv/on_the_air", { with_original_language: "ko" }),
+  topRated: () => getResults("/tv/top_rated", { with_original_language: "ko" }),
+  popular: () => getResults("/tv/popular", { with_original_language: "ko" }),
+  search: query => getResults("/search/tv", { query }),
+  show: id => getResults(`/tv/${id}`, { append_to_response: "videos" })
 };
 
