@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { movieApi } from "../api";
 import { View, Text, Button } from "react-native";
