@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { movieApi } from "../../api";
-import { View, Text, Button } from "react-native";
+import MoviesPresenter from "./MoviesPresenter";
 
-const MoviesController = ({navigation}) => {
+const MoviesController = () => {
 
   const [movies, setMovies] = useState({
+    loading: true,
     nowPlaying: [],
     nowPlyingError: null,
     popular: [],
@@ -19,6 +20,7 @@ const MoviesController = ({navigation}) => {
     const [upcoming, upcomingError] = await movieApi.upcoming();
     //const [movie, movieError] = await movieApi.movie(496243);
     setMovies({
+      loading: false,
       nowPlaying,
       nowPlyingError,
       popular,
@@ -35,10 +37,11 @@ const MoviesController = ({navigation}) => {
 
   return (
     // <View style={{ flex: 1, backgroundColor: "black"}}>
-    <View style={{ flex: 1}}>
-      <Text>{movies.nowPlaying?.length}</Text>
-      <Button title="Movie" onPress={() => navigation.navigate("Detail")} />
-    </View>
+    // <View style={{ flex: 1}}>
+    //   <Text>{movies.nowPlaying?.length}</Text>
+    //   <Button title="Movie" onPress={() => navigation.navigate("Detail")} />
+    // </View>
+    <MoviesPresenter />
   );
 };
 
