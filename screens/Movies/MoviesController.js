@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { movieApi } from "../api";
+import { movieApi } from "../../api";
 import { View, Text, Button } from "react-native";
 
-export default ({navigation}) => {
+const MoviesController = ({navigation}) => {
 
   const [movies, setMovies] = useState({
     nowPlaying: [],
@@ -26,7 +26,7 @@ export default ({navigation}) => {
       upcoming,
       upcomingError
     })
-    console.log(nowPlaying)
+    console.log(popular)
   };
 
   useEffect(() => {
@@ -41,3 +41,5 @@ export default ({navigation}) => {
     </View>
   );
 };
+
+export default MoviesController;

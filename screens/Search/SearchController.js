@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-export default () => {
+const SearchController = () => {
   return (
     <View>
-      <Text>Detail</Text>
+      <Text>Search</Text>
   
     </View>
   )
 };
+
+export default SearchController;

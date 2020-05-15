@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Movies from "../screens/Movies";
-import Tv from "../screens/Tv";
-import Search from "../screens/Search";
+import Movies from "../screens/Movies/MoviesController";
+import Tv from "../screens/TvShow/TvController";
+import Search from "../screens/Search/SearchController";
 import Favs from "../screens/Favs";
 // import { Ionicons } from "@expo/vector-icons";
 import { Fontisto, FontAwesome5 } from '@expo/vector-icons'; 
@@ -13,7 +13,7 @@ const Tabs = createBottomTabNavigator();
 const getHeaderName = (route) =>
   route?.state?.routeNames[route.state.index] || "Movies";
 
-export default ({ navigation, route }) => {  
+const TabNavigator = ({ navigation, route }) => {  
   useLayoutEffect(() => {
     const name = getHeaderName(route);
     navigation.setOptions({ 
@@ -55,3 +55,6 @@ export default ({ navigation, route }) => {
   </Tabs.Navigator>
   );
 };
+
+
+export default TabNavigator;

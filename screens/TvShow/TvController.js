@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { tvApi } from "../api";
+import { tvApi } from "../../api";
 import { View, Text, Button } from "react-native";
 
-export default ({navigation}) => {
+const TvController = ({navigation}) => {
   const [shows, setShows] = useState({
     today: [],
     todayError: null,
@@ -43,3 +43,5 @@ export default ({navigation}) => {
     </View>
   )
 };
+
+export default TvController;
