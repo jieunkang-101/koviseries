@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import styled from 'styled-components/native';
+// import { View, Text } from 'react-native';
+
+const Header = styled.View``;
+const Text = styled.Text`
+  color: red;
+`;
+
 
 const MoviesPresenter = () => {
   return (
-    <View>
+    <Header>
       <Text>Presenter</Text>
-    </View>
+    </Header>
   )
 }
 
