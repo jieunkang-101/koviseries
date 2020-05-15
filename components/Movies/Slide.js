@@ -3,6 +3,8 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { Dimensions, Image } from "react-native";
 import { apiImage } from "../../api";
+import Poster from "../Poster";
+
 
 
 const Container = styled.View`
@@ -32,7 +34,7 @@ const Data = styled.View`
 const Title = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 17px;
 `;
 
 const Votes = styled.Text`
@@ -55,10 +57,11 @@ const Slide = ({ id, title, originalTitle, backgroundImage, votes, overview, pos
     <Container>
       <BackgroundImg source = {{ uri: apiImage(backgroundImage) }} />
       <Content>
+        <Poster url={poster} />
         <Data>
           <Title>{title} | {originalTitle}</Title>
           <Votes>{votes} /10</Votes>
-          <Overview>{overview}</Overview>
+          <Overview>{overview.slice(0,80)}</Overview>
         </Data>
       </Content>
     </Container>

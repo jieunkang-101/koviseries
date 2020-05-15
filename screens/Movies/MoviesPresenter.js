@@ -28,7 +28,7 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
         <ActivityIndicator color="white" />
         ) : (
         <SliderContainer>
-          <Swiper controlsEnabled={false} loop timeout={3}>
+          <Swiper controlsEnabled={false} loop timeout={5}>
             {popular.map(movie => (
               <Slide
                 key={movie.id}
