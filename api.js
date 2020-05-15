@@ -59,3 +59,4 @@ export const tvApi = {
   show: id => getResults(`/tv/${id}`, { append_to_response: "videos" })
 };
 
+export const apiImage = (path) => `https://image.tmdb.org/t/p/w500${path}`;

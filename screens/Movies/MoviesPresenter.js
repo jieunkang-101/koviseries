@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Swiper from 'react-native-web-swiper';
 import { Dimensions, ActivityIndicator } from "react-native";
+import Slide from '../../components/Movies/Slide';
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Container = styled.View`
   flex: 1;
@@ -11,29 +11,19 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const Header = styled.View`
-  width: 100%;
-  height: ${HEIGHT / 3}px;
-  margin-bottom: 40px;
-`;
 
-const Section = styled.View`
-  background-color: red;
-  height: 100%
-`;
 
 const Text = styled.Text``;
 
 
 
 const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
-
   return (
     <Container>
       {loading ? (
         <ActivityIndicator color="white" />
         ) : (
-        <Header>
+        <>
           <Swiper controlsEnabled={false} loop timeout={3}>
             {popular.map(movie => (
               <Slide
@@ -47,7 +37,7 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
               />
             ))}
           </Swiper>
-        </Header>
+        </>
       )}
     </Container>
   )
