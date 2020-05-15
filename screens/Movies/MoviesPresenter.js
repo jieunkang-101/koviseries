@@ -26,9 +26,8 @@ const Text = styled.Text``;
 
 
 
-const MoviesPresenter = ({ loading, nowPlaying }) => {
+const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
 
-console.log("MoviePresenter", loading);
   return (
     <Container>
       {loading ? (
@@ -36,14 +35,16 @@ console.log("MoviePresenter", loading);
         ) : (
         <Header>
           <Swiper controlsEnabled={false} loop timeout={3}>
-            {nowPlaying.map(movie => (
-              <Section key={movie.id}>
-                <Text>{movie.original_title}</Text>
-                <Text>{movie.title}</Text>
-                <Text>{movie.overview}</Text>
-                <Text>{movie.vote_average}</Text>
-                <Text>{movie.backdrop_path}</Text>
-              </Section>
+            {popular.map(movie => (
+              <Slide
+                key={movie.id}
+                id={movie.id}
+                title={movie.original_title}
+                overview={movie.overview}
+                votes={movie.vote_average}
+                backgroundImage={movie.backdrop_path}
+                poster={movie.poster_path}
+              />
             ))}
           </Swiper>
         </Header>
