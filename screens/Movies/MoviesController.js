@@ -18,7 +18,6 @@ const MoviesController = () => {
     const [nowPlaying, nowPlyingError] = await movieApi.nowPlaying();
     const [popular, popularError] = await movieApi.popular();
     const [upcoming, upcomingError] = await movieApi.upcoming();
-    //const [movie, movieError] = await movieApi.movie(496243);
     setMovies({
       loading: false,
       nowPlaying,
@@ -28,19 +27,16 @@ const MoviesController = () => {
       upcoming,
       upcomingError
     })
-    console.log(popular)
   };
 
   useEffect(() => {
     getData();
   }, []);
 
+  console.log(movies)
+  console.log(movies.popular)
+
   return (
-    // <View style={{ flex: 1, backgroundColor: "black"}}>
-    // <View style={{ flex: 1}}>
-    //   <Text>{movies.nowPlaying?.length}</Text>
-    //   <Button title="Movie" onPress={() => navigation.navigate("Detail")} />
-    // </View>
     <MoviesPresenter {...movies} />
   );
 };
