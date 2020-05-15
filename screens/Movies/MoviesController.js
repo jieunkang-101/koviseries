@@ -41,7 +41,7 @@ const MoviesController = () => {
     //   <Text>{movies.nowPlaying?.length}</Text>
     //   <Button title="Movie" onPress={() => navigation.navigate("Detail")} />
     // </View>
-    <MoviesPresenter />
+    <MoviesPresenter {...movies} />
   );
 };
 
