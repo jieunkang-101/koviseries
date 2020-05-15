@@ -18,9 +18,6 @@ const SliderContainer = styled.View`
   margin-bottom: 40px;
 `;
 
-
-
-
 const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
   return (
     <Container>

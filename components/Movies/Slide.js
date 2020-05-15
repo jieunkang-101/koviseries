@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-import { Dimensions, Image } from "react-native";
+import {  TouchableOpacity } from "react-native";
 import { apiImage } from "../../api";
 import Poster from "../Poster";
-
+import { useNavigation } from "@react-navigation/native";
 
 
 const Container = styled.View`
@@ -15,7 +15,7 @@ const Container = styled.View`
 const BackgroundImg = styled.Image`
   height: 100%;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.4;
   position: absolute;
 `; 
 
@@ -34,7 +34,13 @@ const Data = styled.View`
 const Title = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 20px;
+`;
+
+const OriginalTitle = styled.Text`
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
 `;
 
 const Votes = styled.Text`
@@ -52,18 +58,32 @@ const Overview = styled.Text`
 
 
 const Slide = ({ id, title, originalTitle, backgroundImage, votes, overview, poster }) => {
+  const navigation = useNavigation();
+  const goToDetail = () =>
+  navigation.navigate("Detail", {
+    id,
+    title,
+    originalTitle,
+    backgroundImage,
+    votes,
+    overview,
+    poster
+  });
 
   return (
-    <Container>
+    <Container onPress={goToDetail}>
+      <TouchableOpacity onPress={goToDetail}>
       <BackgroundImg source = {{ uri: apiImage(backgroundImage) }} />
       <Content>
         <Poster url={poster} />
         <Data>
-          <Title>{title} | {originalTitle}</Title>
-          <Votes>{votes} /10</Votes>
+          <Title>{title}</Title>
+          <OriginalTitle>| {originalTitle}</OriginalTitle>
+          <Votes>⭐ {votes} / 10</Votes>
           <Overview>{overview.slice(0,80)}</Overview>
         </Data>
       </Content>
+      </TouchableOpacity>
     </Container>
   )
 }
@@ -77,6 +97,5 @@ Slide.propTypes = {
   overview: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired
 };
-
 
 export default Slide
