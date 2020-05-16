@@ -9,10 +9,10 @@ const Text = styled.Text`
   margin-left: 20px;
 `;
 
-const Title = ({ title }) => <Text>{title}</Text>;
+const SlideTitle = ({ title }) => <Text>{title}</Text>;
 
-Title.propTypes = {
+SlideTitle.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default Title;
+export default SlideTitle;

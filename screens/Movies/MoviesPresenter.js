@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components/native";
 import Swiper from "react-native-web-swiper";
 import { Dimensions, ActivityIndicator, ScrollView } from "react-native";
-import Slide from "../../components/Movies/Slide";
-import Title from "../../components/Title";
+import BgSlide from "../../components/Movies/BgSlide";
+import SlideTitle from "../../components/SlideTitle";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -30,11 +30,11 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
         <ActivityIndicator color="white" />
         ) : (
         <>
-          <Title title={"Movies Popular"} />
+          <SlideTitle title={"Movies Popular"} />
           <SliderContainer>
             <Swiper controlsEnabled={false} loop timeout={5}>
               {popular.map(movie => (
-                <Slide
+                <BgSlide
                   key={movie.id}
                   id={movie.id}
                   title={movie.title}
@@ -48,7 +48,7 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
             </Swiper>
           </SliderContainer>
           <Container>
-            <Title title={"Movies Now Playing"} />
+            <SlideTitle title={"Movies Now Playing"} />
           </Container>
         </>
       )}

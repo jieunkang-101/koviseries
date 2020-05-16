@@ -58,7 +58,7 @@ const Overview = styled.Text`
 `;
 
 
-const Slide = ({ id, title, originalTitle, backgroundImage, votes, overview, poster }) => {
+const BgSlide = ({ id, title, originalTitle, backgroundImage, votes, overview, poster }) => {
   const navigation = useNavigation();
   const goToDetail = () =>
   navigation.navigate("Detail", {
@@ -89,7 +89,7 @@ const Slide = ({ id, title, originalTitle, backgroundImage, votes, overview, pos
   )
 }
 
-Slide.propTypes = {
+BgSlide.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   originalTitle: PropTypes.string.isRequired,
@@ -99,4 +99,4 @@ Slide.propTypes = {
   poster: PropTypes.string.isRequired
 };
 
-export default Slide
+export default BgSlide
