@@ -4,6 +4,7 @@ import Movies from "../screens/Movies/MoviesController";
 import Tv from "../screens/TvShow/TvController";
 import Search from "../screens/Search/SearchController";
 import Favs from "../screens/Favs";
+
 import { Fontisto, FontAwesome5 } from '@expo/vector-icons'; 
 import { Platform } from "react-native";
 
@@ -18,9 +19,9 @@ const TabNavigator = ({ navigation, route }) => {
     navigation.setOptions({ 
       title: name, 
       // headerShown: name !== "TV",
-      // headerStyle: {
-      //   backgroundColor: name === "Favs" ? "blue" : "white"
-      // }
+      headerStyle: {
+        backgroundColor: name === "Favs" ? "blue" : "green"
+      }
     });  
   }, [route]);
  

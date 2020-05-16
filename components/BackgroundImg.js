@@ -4,16 +4,16 @@ import styled from "styled-components/native";
 import { apiImage } from "../api";
 
 const Image = styled.Image`
-  width: 100px;
-  height: 160px;
-  borderRadius: 4px;
-  
+  width: 100%;
+  height:  100%;
+  opacity: 0.5;
+  position: absolute;
 `;
 
-const Poster = ({ url }) => <Image source={{ uri: apiImage(url) }} />;
+const BackgroundImg = ({ url }) => <Image source={{ uri: apiImage(url) }} />;
 
-Poster.propTypes = {
+BackgroundImg.propTypes = {
   url: PropTypes.string
 };
 
-export default Poster;
+export default BackgroundImg;

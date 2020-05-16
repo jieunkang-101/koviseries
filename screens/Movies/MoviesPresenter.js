@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Swiper from 'react-native-web-swiper';
-import { Dimensions, ActivityIndicator } from "react-native";
+import { Dimensions, ActivityIndicator, Text } from "react-native";
 import Slide from '../../components/Movies/Slide';
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("screen");
@@ -19,6 +19,7 @@ const SliderContainer = styled.View`
 `;
 
 const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
+
   return (
     <Container>
       {loading ? (

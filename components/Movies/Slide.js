@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-import {  TouchableOpacity } from "react-native";
-import { apiImage } from "../../api";
+import { TouchableOpacity } from "react-native";
+// import { apiImage } from "../../api";
+import BackgroundImg from "../BackgroundImg";
 import Poster from "../Poster";
 import { useNavigation } from "@react-navigation/native";
 
@@ -12,12 +13,12 @@ const Container = styled.View`
   width: 100%;
 `;
 
-const BackgroundImg = styled.Image`
-  height: 100%;
-  width: 100%;
-  opacity: 0.4;
-  position: absolute;
-`; 
+// const BackgroundImg = styled.Image`
+//   height: 100%;
+//   width: 100%;
+//   opacity: 0.4;
+//   position: absolute;
+// `; 
 
 const Content = styled.View`
   height: 100%;
@@ -71,20 +72,20 @@ const Slide = ({ id, title, originalTitle, backgroundImage, votes, overview, pos
   });
 
   return (
-    <Container onPress={goToDetail}>
-      <TouchableOpacity onPress={goToDetail}>
-      <BackgroundImg source = {{ uri: apiImage(backgroundImage) }} />
-      <Content>
-        <Poster url={poster} />
-        <Data>
-          <Title>{title}</Title>
-          <OriginalTitle>| {originalTitle}</OriginalTitle>
-          <Votes>⭐ {votes} / 10</Votes>
-          <Overview>{overview.slice(0,80)}</Overview>
-        </Data>
-      </Content>
-      </TouchableOpacity>
-    </Container>
+    <TouchableOpacity enabled="true" onPress={goToDetail}>
+      <Container>
+        <BackgroundImg url={backgroundImage} />
+        <Content>
+          <Poster url={poster} />
+          <Data>
+            <Title>{title.length > 27 ? `${title.slice(0, 27)}...` : title}</Title>
+            <OriginalTitle>| {originalTitle}</OriginalTitle>
+            <Votes>⭐ {votes} / 10</Votes>
+            <Overview>{overview.slice(0,80)}...</Overview>
+          </Data>
+        </Content>
+      </Container>
+    </ TouchableOpacity>
   )
 }
 
