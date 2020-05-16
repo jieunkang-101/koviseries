@@ -7,7 +7,8 @@ const Image = styled.Image`
   width: 100px;
   height: 160px;
   borderRadius: 4px;
-  
+  border: 1px solid #ddd; 
+  padding: 5px;
 `;
 
 const Poster = ({ url }) => <Image source={{ uri: apiImage(url) }} />;

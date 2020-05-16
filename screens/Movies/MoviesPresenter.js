@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import Swiper from 'react-native-web-swiper';
+import React from "react";
+import styled from "styled-components/native";
+import Swiper from "react-native-web-swiper";
 import { Dimensions, ActivityIndicator, Text } from "react-native";
-import Slide from '../../components/Movies/Slide';
+import Slide from "../../components/Movies/Slide";
+import Title from "../../components/Title";
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("screen");
+const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Container = styled.View`
   flex: 1;
@@ -25,22 +26,26 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
       {loading ? (
         <ActivityIndicator color="white" />
         ) : (
-        <SliderContainer>
-          <Swiper controlsEnabled={false} loop timeout={5}>
-            {popular.map(movie => (
-              <Slide
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                originalTitle={movie.original_title}
-                overview={movie.overview}
-                votes={movie.vote_average}
-                backgroundImage={movie.backdrop_path}
-                poster={movie.poster_path}
-              />
-            ))}
-          </Swiper>
-        </SliderContainer>
+        <>
+          <Title title={"Movies Popular"} />
+          <SliderContainer>
+            <Swiper controlsEnabled={false} loop timeout={5}>
+              {popular.map(movie => (
+                <Slide
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title}
+                  originalTitle={movie.original_title}
+                  overview={movie.overview}
+                  votes={movie.vote_average}
+                  backgroundImage={movie.backdrop_path}
+                  poster={movie.poster_path}
+                />
+              ))}
+            </Swiper>
+          </SliderContainer>
+          <Title title={"Movies Now Playing"} />
+        </>
       )}
     </Container>
   )
