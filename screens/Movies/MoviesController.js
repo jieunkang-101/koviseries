@@ -6,8 +6,8 @@ const MoviesController = () => {
 
   const [movies, setMovies] = useState({
     loading: true,
-    nowPlaying: [],
-    nowPlyingError: null,
+    topRated: [],
+    topRatedError: null,
     popular: [],
     popularError: null,
     upcoming: [], 
@@ -15,13 +15,13 @@ const MoviesController = () => {
   });
 
   const getData = async () => {
-    const [nowPlaying, nowPlyingError] = await movieApi.nowPlaying();
+    const [topRated, topRatedError] = await movieApi.topRated();
     const [popular, popularError] = await movieApi.popular();
     const [upcoming, upcomingError] = await movieApi.upcoming();
     setMovies({
       loading: false,
-      nowPlaying,
-      nowPlyingError,
+      topRated,
+      topRatedError,
       popular,
       popularError,
       upcoming,
@@ -34,7 +34,7 @@ const MoviesController = () => {
   }, []);
 
   console.log(movies)
-  console.log(movies.nowPlaying)
+  console.log(movies.upcoming)
 
   return (
     <MoviesPresenter {...movies} />

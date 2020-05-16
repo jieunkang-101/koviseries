@@ -9,6 +9,7 @@ const makeRequest = (path, params) =>
         ...params,
         page: 1, 
         with_original_language: "ko",
+        without_genres: 10749, 
         api_key: TMDB_KEY
       }
   })
@@ -43,8 +44,8 @@ const getResults = async (path, params = {}) => {
 };
 
 export const movieApi = {
-  nowPlaying: () => getResults("/movie/top_rated", { without_genres: 10749 }),
-  popular: () => getResults("/movie/popular", { sort_by: "popularity.desc", without_genres: 10749 }),
+  popular: () => getResults("/movie/popular", { sort_by: "popularity.desc"}),
+  topRated: () => getResults("/movie/top_rated"),
   upcoming: () => getResults("/movie/upcoming", { sort_by: "release_date.asc" }),
   search: query => getResults("/search/movie", { query }),
   movie: id => getResults(`/movie/${id}`, { append_to_response: "videos" })

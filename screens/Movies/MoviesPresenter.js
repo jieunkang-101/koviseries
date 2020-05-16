@@ -5,20 +5,19 @@ import { Dimensions, ActivityIndicator, ScrollView } from "react-native";
 import BgSlide from "../../components/Movies/BgSlide";
 import SlideTitle from "../../components/SlideTitle";
 import CardSlide from "../../components/CardSlide";
+import VerticalCard from "../../components/Movies/VerticalCard";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const BgSlideContainer = styled.View`
   width: 100%;
   height: ${HEIGHT / 4}px;
-  margin-bottom: 30px;
-  margin-left: 12px;
-  margin-right: 20px;
+  margin: 15px 0px 30px 15px;
 `;
 
 const Container = styled.View``;
 
-const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
+const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
   return (
     <ScrollView
       contentContainerStyle={{
@@ -31,8 +30,8 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
         <ActivityIndicator color="white" />
         ) : (
         <>
-          <SlideTitle title={"Movies Popular"} />
           <BgSlideContainer>
+            <SlideTitle title={"Movies Popular"} />
             <Swiper controlsEnabled={false} loop timeout={5}>
               {popular.map(movie => (
                 <BgSlide
@@ -49,16 +48,17 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
             </Swiper>
           </BgSlideContainer>
           <Container>
-            <SlideTitle title={"Movies Now Playing"} />
+            <SlideTitle title={"Movies Top Rated"} />
             <ScrollView 
               horizontal={true}
               contentContainerStyle={{
-                paddingLeft: 12,
+                paddingLeft: 15,
+                paddingBottom: 30,
                 flexDirection: 'row'
               }}
               showsHorizontalScrollIndicator={false}
             >
-              {nowPlaying.map(movie => (
+              {topRated.map(movie => (
                 <CardSlide
                   key={movie.id}
                   id={movie.id}
@@ -68,10 +68,23 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
                 />
               ))}
             </ScrollView>
+            <SlideTitle title={"Movies Upcoming"} />
+            <ScrollView> 
+              {upcoming.map(movie => (
+                  <VerticalCard
+                    key={movie.id}
+                    id={movie.id}
+                    poster={movie.poster_path}
+                    title={movie.title}
+                    releaseDate={movie.release_date}
+                    overview={movie.overview}
+                  />
+              ))}
+            </ScrollView>
           </Container>
         </>
       )}
-    </ScrollView>
+      </ScrollView>
   )
 }
 
