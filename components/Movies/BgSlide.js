@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native";
 // import { apiImage } from "../../api";
 import BackgroundImg from "../BackgroundImg";
 import Poster from "../Poster";
+import Votes from "../Votes";
 import { useNavigation } from "@react-navigation/native";
 
 
@@ -44,11 +45,11 @@ const OriginalTitle = styled.Text`
   font-size: 15px;
 `;
 
-const Votes = styled.Text`
-  color: rgb(220, 220, 220);
-  font-size: 14px;
-  font-weight: 500;
-`;
+// const Votes = styled.Text`
+//   color: rgb(220, 220, 220);
+//   font-size: 14px;
+//   font-weight: 500;
+// `;
 
 
 const Overview = styled.Text`
@@ -80,7 +81,7 @@ const BgSlide = ({ id, title, originalTitle, backgroundImage, votes, overview, p
           <Data>
             <Title>{title.length > 27 ? `${title.slice(0, 27)}...` : title}</Title>
             <OriginalTitle>| {originalTitle}</OriginalTitle>
-            <Votes>⭐ {votes} / 10</Votes>
+            <Votes votes={votes} />
             <Overview>{overview.slice(0,80)}...</Overview>
           </Data>
         </Content>

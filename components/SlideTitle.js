@@ -7,6 +7,8 @@ const Text = styled.Text`
   font-weight: bold;
   font-size: 16px;
   margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 `;
 
 const SlideTitle = ({ title }) => <Text>{title}</Text>;

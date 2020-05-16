@@ -1,31 +1,34 @@
 import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-import { apiImage } from "../api";
+import Poster from "./Poster";
+import Votes from "./Votes";
+import { TouchableOpacity } from "react-native";
+
 
 const Container = styled.View`
+  align-items: center;
+  margin-right: 15px;
 `;
 
 const Title = styled.Text`
   color: white;
-  font-weight: bold;
-  font-size: 14px;
-`;
-
-const Votes = styled.Text`
-  color: rgb(220, 220, 220);
-  font-size: 14px;
   font-weight: 500;
+  margin: 10px 0px 5px 0px;
 `;
 
 
 const CardSlide = ({ id, poster, title, votes }) => {
-<Container>
-  <Poster url ={apiImage(poster)} />
-  <Title>{title}</Title>
-  <Votes>⭐ {votes} / 10</Votes>
-</Container>
-}
+  return (
+    <TouchableOpacity>
+      <Container>
+        <Poster url = {poster} />
+        <Title>{title.length > 12 ? `${title.slice(0, 12)}...` : title}</Title>
+        <Votes votes={votes} />
+      </Container>
+    </TouchableOpacity>
+  );
+};
 
 CardSlide.propTypes = {
   id: PropTypes.number.isRequired,

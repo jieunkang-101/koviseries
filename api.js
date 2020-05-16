@@ -43,7 +43,7 @@ const getResults = async (path, params = {}) => {
 };
 
 export const movieApi = {
-  nowPlaying: () => getResults("/movie/now_playing", { without_genres: 10749 }),
+  nowPlaying: () => getResults("/movie/top_rated", { without_genres: 10749 }),
   popular: () => getResults("/movie/popular", { sort_by: "popularity.desc", without_genres: 10749 }),
   upcoming: () => getResults("/movie/upcoming", { sort_by: "release_date.asc" }),
   search: query => getResults("/search/movie", { query }),

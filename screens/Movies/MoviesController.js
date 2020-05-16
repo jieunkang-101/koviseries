@@ -34,7 +34,7 @@ const MoviesController = () => {
   }, []);
 
   console.log(movies)
-  console.log(movies.popular)
+  console.log(movies.nowPlaying)
 
   return (
     <MoviesPresenter {...movies} />
