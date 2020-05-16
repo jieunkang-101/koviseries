@@ -6,7 +6,7 @@ import { apiImage } from "../api";
 const Image = styled.Image`
   width: 100px;
   height: 160px;
-  borderRadius: 4px;
+  border-radius: 4px;
   border: 1px solid #ddd; 
   padding: 5px;
 `;

@@ -1,28 +1,31 @@
 import React from "react";
 import styled from "styled-components/native";
 import Swiper from "react-native-web-swiper";
-import { Dimensions, ActivityIndicator, Text } from "react-native";
+import { Dimensions, ActivityIndicator, ScrollView } from "react-native";
 import Slide from "../../components/Movies/Slide";
 import Title from "../../components/Title";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
-const Container = styled.View`
-  flex: 1;
-  background-color: black;
-  justify-content: center;
-`;
-
 const SliderContainer = styled.View`
   width: 100%;
   height: ${HEIGHT / 3}px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 `;
 
-const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
+const Container = styled.View``;
 
+const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
   return (
-    <Container>
+    <ScrollView
+      style={{
+        backgroundColor: "black"
+      }}
+      contentContainerStyle={{
+        flex: 1,
+        justifyContent: loading ? "center" : "flex-start"
+      }}
+    >
       {loading ? (
         <ActivityIndicator color="white" />
         ) : (
@@ -44,10 +47,12 @@ const MoviesPresenter = ({ loading, nowPlaying, popular, upcoming }) => {
               ))}
             </Swiper>
           </SliderContainer>
-          <Title title={"Movies Now Playing"} />
+          <Container>
+            <Title title={"Movies Now Playing"} />
+          </Container>
         </>
       )}
-    </Container>
+    </ScrollView>
   )
 }
 
