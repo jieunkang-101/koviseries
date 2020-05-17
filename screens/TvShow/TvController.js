@@ -29,7 +29,7 @@ const TvController = ({navigation}) => {
       popular,
       popularError
     });
-    console.log(topRated);
+    console.log(today);
   };
 
   useEffect(() => {
