@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components/native";
 import Swiper from "react-native-web-swiper";
 import PresenterContainer from "../../components/PresenterContainer";
-import { Dimensions, ScrollView, Text } from "react-native";
 import SlideTitle from "../../components/SlideTitle";
 import BgSlide from "../../components/TvShow/BgSlide";
 import BgSlideContainer from "../../components/BgSlideContainer";
+import ScrollViewContainer from "../../components/ScrollViewContainer";
 import CardSlide from "../../components/CardSlide";
-import ScrollCard from "../../components/Movies/ScrollCard";
 
+const Container = styled.View``;
 
 const TvPresenter = ({ loading, popular, today, thisWeek, topRated }) => {
   return (
@@ -31,15 +31,9 @@ const TvPresenter = ({ loading, popular, today, thisWeek, topRated }) => {
             ))}
           </Swiper>
         </BgSlideContainer>
-        <SlideTitle title={"TV Shows Airing Today"} />
-        <ScrollView 
-            horizontal={true}
-            contentContainerStyle={{
-              paddingLeft: 15,
-              paddingBottom: 30,           
-            }}
-            showsHorizontalScrollIndicator={false}
-          >
+        <Container>
+          <SlideTitle title={"TV Shows Airing Today"} />
+          <ScrollViewContainer>  
             {today.map(show => (
               <CardSlide
                 key={show.id}
@@ -49,15 +43,35 @@ const TvPresenter = ({ loading, popular, today, thisWeek, topRated }) => {
                 votes={show.vote_average}
               />
             ))}
-          </ScrollView>
+          </ScrollViewContainer>
           <SlideTitle title={"TV Shows On The Air"} />      
+          <ScrollViewContainer>  
+            {thisWeek.map(show => (
+              <CardSlide
+                key={show.id}
+                id={show.id}
+                poster={show.poster_path}
+                name={show.name}
+                votes={show.vote_average}
+              />
+            ))}
+          </ScrollViewContainer>  
           <SlideTitle title={"TV Shows Top Rated"} />   
-
-
+          <ScrollViewContainer>  
+            {topRated.map(show => (
+              <CardSlide
+                key={show.id}
+                id={show.id}
+                poster={show.poster_path}
+                name={show.name}
+                votes={show.vote_average}
+              />
+            ))}
+          </ScrollViewContainer>  
+        </Container>      
       </>  
     </PresenterContainer>
-   
-  )
-}
+  );
+;}
 
-export default TvPresenter
+export default TvPresenter;

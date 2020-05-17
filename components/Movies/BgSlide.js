@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
-import BackgroundImg from "../BackgroundImg";
+import BgImg from "../BgImg";
 import Poster from "../Poster";
 import Votes from "../Votes";
 import { useNavigation } from "@react-navigation/native";
@@ -58,14 +58,14 @@ const BgSlide = ({ id, title, originalTitle, backgroundImage, votes, overview, p
   return (
     <TouchableOpacity enabled="true" onPress={goToDetail}>
       <Container>
-        <BackgroundImg url={backgroundImage} />
+        <BgImg url={backgroundImage} />
         <Content>
           <Poster url={poster} />
           <Data>
             <Title>{title.length > 27 ? `${title.slice(0, 27)}...` : title}</Title>
             <OriginalTitle>| {originalTitle}</OriginalTitle>
             <Votes votes={votes} />
-            <Overview>{overview.slice(0,80)}...</Overview>
+            {overview ? (<Overview>{overview.slice(0,80)}...</Overview>) : null}
           </Data>
         </Content>
       </Container>

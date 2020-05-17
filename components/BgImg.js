@@ -12,14 +12,14 @@ const Image = styled.Image`
   margin-right: 30px;
 `;
 
-const BackgroundImg = ({ url }) => {
+const BgImg = ({ url }) => {
   return (
     url ? (<Image source={{ uri: apiImage(url) }} />) : (<Image source={require('../assets/default-bg.jpeg')} />)
   );
 };
 
-BackgroundImg.propTypes = {
+BgImg.propTypes = {
   url: PropTypes.string
 };
 
-export default BackgroundImg;
+export default BgImg;

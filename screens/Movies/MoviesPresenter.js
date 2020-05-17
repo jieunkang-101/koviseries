@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
 import Swiper from "react-native-web-swiper";
-import { Dimensions, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import PresenterContainer from "../../components/PresenterContainer";
 import BgSlideContainer from "../../components/BgSlideContainer";
 import BgSlide from "../../components/Movies/BgSlide";
 import SlideTitle from "../../components/SlideTitle";
+import ScrollViewContainer from "../../components/ScrollViewContainer";
 import CardSlide from "../../components/CardSlide";
 import ScrollCard from "../../components/Movies/ScrollCard";
 
@@ -34,14 +35,7 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
         </BgSlideContainer>
         <Container>
           <SlideTitle title={"Movies Top Rated"} />
-          <ScrollView 
-            horizontal={true}
-            contentContainerStyle={{
-              paddingLeft: 15,
-              paddingBottom: 30,           
-            }}
-            showsHorizontalScrollIndicator={false}
-          >
+          <ScrollViewContainer>
             {topRated.map(movie => (
               <CardSlide
                 key={movie.id}
@@ -51,7 +45,7 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
                 votes={movie.vote_average}
               />
             ))}
-          </ScrollView>
+          </ScrollViewContainer>
           <SlideTitle title={"Movies Upcoming"} />
           <ScrollView> 
             {upcoming.map(movie => (
@@ -68,7 +62,7 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
         </Container>
       </>
     </PresenterContainer>
-  )
-}
+  );
+};
 
 export default MoviesPresenter;
