@@ -45,7 +45,7 @@ const ScrollCard = ({ id, poster, title, releaseDate, overview }) => {
           <Title>{title.length > 27 ? `${title.slice(0, 27)}...` : title}</Title>
           {releaseDate ? (
             <ReleaseDate>{theDate.toLocaleDateString("en-us", {day:"numeric", month:"long", year:"numeric"})}</ReleaseDate>
-          ) : null}
+            ) : null}
           <Overview>{overview.length > 0 ? `${overview.slice(0,80)}...` : ""}</Overview>
         </Data>
       </Container>

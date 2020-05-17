@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { tvApi } from "../../api";
-import { View, Text, Button } from "react-native";
+import TvPresenter from "./TvPresenter";
 
-const TvController = ({navigation}) => {
+const TvController = () => {
+
   const [shows, setShows] = useState({
+    
     today: [],
     todayError: null,
     thisWeek: [],
@@ -20,6 +22,7 @@ const TvController = ({navigation}) => {
     const [topRated, topRatedError] = await tvApi.topRated();
     const [popular, popularError] = await tvApi.popular();
     setShows({
+      loading: false,
       today,
       todayError,
       thisWeek,
@@ -29,18 +32,17 @@ const TvController = ({navigation}) => {
       popular,
       popularError
     });
-    console.log(today);
   };
 
   useEffect(() => {
     getData();
   }, []);
 
+  console.log(shows)
+  console.log(shows.today);
+
   return (
-    <View>
-      <Text>{shows.topRated?.length}</Text>
-      <Button title="TV Show" onPress={() => navigation.navigate("Detail")} />
-    </View>
+    <TvPresenter {...shows} />
   )
 };
 
