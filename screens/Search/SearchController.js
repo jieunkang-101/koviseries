@@ -1,12 +1,10 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import SearchPresenter from "./SearchPresenter";
+import { movieApi, tvApi } from "../../api";
 
 const SearchController = () => {
   return (
-    <View>
-      <Text>Search</Text>
-  
-    </View>
+    <SearchPresenter />
   )
 };
 
