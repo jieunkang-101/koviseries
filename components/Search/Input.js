@@ -16,7 +16,7 @@ const Input = ({ placeholder, value, onChange, onSubmit }) => (
     onChangeText={onChange}
     onSubmitEditing={onSubmit}
     placeholder={placeholder}
-    returnKeyType={"Search"}
+    returnKeyType={"search"}
   />
 );
 

@@ -10,11 +10,15 @@ const Container = styled.ScrollView`
 
 const Text = styled.Text``;
 
-const SearchPresenter = () => {
+const SearchPresenter = ({ keyword, onChange, onSubmit }) => {
   return (
     <Container>
       <Input 
         placeholder={"Search Movies & TV Shows"}
+        value={keyword}
+        onChange={onChange} 
+        onSubmit={onSubmit}
+
       />
     </Container>
   )

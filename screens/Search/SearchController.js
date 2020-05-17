@@ -3,8 +3,17 @@ import SearchPresenter from "./SearchPresenter";
 import { movieApi, tvApi } from "../../api";
 
 const SearchController = () => {
+  const [keyword, setKeyword] = useState("");
+  const onChange = (text) => setKeyword(text);
+  const onSubmit = () => console.log("search for", keyword)
+
+
   return (
-    <SearchPresenter />
+    <SearchPresenter 
+      keyword={keyword}
+      onChange={onChange} 
+      onSubmit={onSubmit}
+    />
   )
 };
 

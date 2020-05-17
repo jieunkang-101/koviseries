@@ -47,8 +47,8 @@ export const movieApi = {
   popular: () => getResults("/movie/popular", { sort_by: "popularity.desc"}),
   topRated: () => getResults("/movie/top_rated"),
   upcoming: () => getResults("/movie/upcoming", { sort_by: "release_date.asc" }),
-  search: query => getResults("/search/movie", { query }),
-  movie: id => getResults(`/movie/${id}`, { append_to_response: "videos" })
+  search: (query) => getResults("/search/movie", { query }),
+  movie: (id) => getResults(`/movie/${id}`, { append_to_response: "videos" })
 };
 
 export const tvApi = {
@@ -56,8 +56,8 @@ export const tvApi = {
   thisWeek: () => getResults("/tv/on_the_air"),
   topRated: () => getResults("/tv/top_rated"),
   popular: () => getResults("/tv/popular"),
-  search: query => getResults("/search/tv", { query }),
-  show: id => getResults(`/tv/${id}`, { append_to_response: "videos" })
+  search: (query) => getResults("/search/tv", { query }),
+  show: (id) => getResults(`/tv/${id}`, { append_to_response: "videos" })
 };
 
 export const apiImage = (path) => `https://image.tmdb.org/t/p/w500${path}`;
