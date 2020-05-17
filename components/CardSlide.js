@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Poster from "./Poster";
 import Votes from "./Votes";
 import { TouchableOpacity } from "react-native";
+import { trimText } from "../utils";
 
 const Container = styled.View`
   align-items: center;
@@ -27,8 +28,8 @@ const CardSlide = ({ id, poster, title, name, votes }) => {
     <TouchableOpacity>
       <Container>
         <Poster url = {poster} />
-        {title ? (<Title>{title.length > 12 ? `${title.slice(0, 12)}...` : title}</Title>) : null}
-        {name ? (<Name>{name.length > 12 ? `${name.slice(0, 12)}...` : name}</Name>) : null}
+        {title ? (<Title>{trimText(title, 12)}</Title>) : null}
+        {name ? (<Name>{trimText(name, 12)}</Name>) : null}
         <Votes votes={votes} />
       </Container>
     </TouchableOpacity>

@@ -6,6 +6,7 @@ import BgImg from "../BgImg";
 import Poster from "../Poster";
 import Votes from "../Votes";
 import { useNavigation } from "@react-navigation/native";
+import { trimText } from "../../utils";
 
 const Container = styled.View`
   height: 100%;
@@ -42,7 +43,6 @@ const Overview = styled.Text`
   font-weight: 500;
 `;
 
-
 const BgSlide = ({ id, name, originalName, backgroundImage, votes, overview, poster }) => {
   const navigation = useNavigation();
   const goToDetail = () =>
@@ -63,16 +63,16 @@ const BgSlide = ({ id, name, originalName, backgroundImage, votes, overview, pos
         <Content>
           <Poster url={poster} />
           <Data>
-            <Name>{name.length > 27 ? `${name.slice(0, 27)}...` : name}</Name>
+            <Name>{trimText(name, 27)}</Name>
             <OriginalName>| {originalName}</OriginalName>
             <Votes votes={votes} />
-            {overview ? (<Overview>{overview.slice(0,80)}...</Overview>) : null}
+            <Overview>{trimText(overview, 80)}</Overview>
           </Data>
         </Content>
       </Container>
     </ TouchableOpacity>
-  )
-}
+  );
+};
 
 BgSlide.propTypes = {
   id: PropTypes.number.isRequired,
@@ -84,4 +84,4 @@ BgSlide.propTypes = {
   poster: PropTypes.string
 };
 
-export default BgSlide
+export default BgSlide;

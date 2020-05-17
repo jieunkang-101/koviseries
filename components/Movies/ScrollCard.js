@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "../Poster";
 import { TouchableOpacity } from "react-native";
+import { trimText, formatDate } from "../../utils";
 
 const Container = styled.View`
   padding: 0px 15px;
@@ -36,17 +37,16 @@ const Overview = styled.Text`
 
 
 const ScrollCard = ({ id, poster, title, releaseDate, overview }) => {
-  const theDate = new Date(releaseDate);
   return (
     <TouchableOpacity>
       <Container>
         <Poster url = {poster} />
         <Data>
-          <Title>{title.length > 27 ? `${title.slice(0, 27)}...` : title}</Title>
+          <Title>{trimText(title, 27)}</Title>
           {releaseDate ? (
-            <ReleaseDate>{theDate.toLocaleDateString("en-us", {day:"numeric", month:"long", year:"numeric"})}</ReleaseDate>
+            <ReleaseDate>{formatDate(releaseDate)}</ReleaseDate>
             ) : null}
-          <Overview>{overview.length > 0 ? `${overview.slice(0,80)}...` : ""}</Overview>
+          <Overview>{trimText(overview, 80)}</Overview>
         </Data>
       </Container>
     </TouchableOpacity>
