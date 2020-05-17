@@ -42,7 +42,6 @@ const Overview = styled.Text`
   font-weight: 500;
 `;
 
-
 const BgSlide = ({ id, title, originalTitle, backgroundImage, votes, overview, poster }) => {
   const navigation = useNavigation();
   const goToDetail = () =>

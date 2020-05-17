@@ -3,18 +3,11 @@ import styled from "styled-components/native";
 import Swiper from "react-native-web-swiper";
 import { Dimensions, ScrollView } from "react-native";
 import PresenterContainer from "../../components/PresenterContainer";
-import SlideTitle from "../../components/SlideTitle";
+import BgSlideContainer from "../../components/BgSlideContainer";
 import BgSlide from "../../components/Movies/BgSlide";
+import SlideTitle from "../../components/SlideTitle";
 import CardSlide from "../../components/CardSlide";
 import ScrollCard from "../../components/Movies/ScrollCard";
-
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
-
-const BgSlideContainer = styled.View`
-  width: 100%;
-  height: ${HEIGHT / 4}px;
-  margin: 15px 0px 30px 15px;
-`;
 
 const Container = styled.View``;
 
