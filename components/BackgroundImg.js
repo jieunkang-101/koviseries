@@ -8,9 +8,11 @@ const Image = styled.Image`
   height:  100%;
   opacity: 0.5;
   position: absolute;
+  border-radius: 4px;
+  margin-right: 30px;
 `;
 
-const BackgroundImg = ({ url }) => <Image source={{ uri: apiImage(url) }} />;
+const BackgroundImg = ({ url }) => <Image resizeMode="cover" source={{ uri: apiImage(url) }} />;
 
 BackgroundImg.propTypes = {
   url: PropTypes.string

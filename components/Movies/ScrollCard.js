@@ -18,8 +18,8 @@ const Data = styled.View`
 
 const Title = styled.Text`
   color: white;
-  font-weight: 500;
-  margin: 10px 0px 5px 0px;
+  font-weight: bold;
+  margin: 10px 0px 10px 0px;
 `;
 
 const ReleaseDate = styled.Text`
@@ -35,23 +35,25 @@ const Overview = styled.Text`
 `;
 
 
-
-const VerticalCard = ({ id, poster, title, releaseDate, overview }) => {
+const ScrollCard = ({ id, poster, title, releaseDate, overview }) => {
+  const theDate = new Date(releaseDate);
   return (
     <TouchableOpacity>
       <Container>
         <Poster url = {poster} />
         <Data>
           <Title>{title.length > 27 ? `${title.slice(0, 27)}...` : title}</Title>
-          <ReleaseDate>{releaseDate}</ReleaseDate>
-          <Overview>{overview.slice(0,80)}...</Overview>
+          {releaseDate ? (
+            <ReleaseDate>{theDate.toLocaleDateString("en-us", {day:"numeric", month:"long", year:"numeric"})}</ReleaseDate>
+          ) : null}
+          <Overview>{overview.length > 0 ? `${overview.slice(0,80)}...` : ""}</Overview>
         </Data>
       </Container>
     </TouchableOpacity>
   )
 }
 
-VerticalCard.propTypes = {
+ScrollCard.propTypes = {
   id: PropTypes.number.isRequired,
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
@@ -59,4 +61,4 @@ VerticalCard.propTypes = {
   overview: PropTypes.string.isRequired
 };
 
-export default VerticalCard
+export default ScrollCard

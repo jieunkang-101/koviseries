@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 const Text = styled.Text`
   color: white;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 20px;
   margin-left: 20px;
   margin-top: 15px;
   margin-bottom: 15px;

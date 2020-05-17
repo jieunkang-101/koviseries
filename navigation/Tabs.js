@@ -18,8 +18,10 @@ const TabNavigator = ({ navigation, route }) => {
     const name = getHeaderName(route);
     navigation.setOptions({ 
       title: name, 
+      fontSize: 24,
       // headerShown: name !== "TV",
       headerStyle: {
+        
         backgroundColor: name === "Favs" ? "blue" : "green"
       }
     });  

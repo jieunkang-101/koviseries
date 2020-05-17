@@ -2,24 +2,15 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
-// import { apiImage } from "../../api";
 import BackgroundImg from "../BackgroundImg";
 import Poster from "../Poster";
 import Votes from "../Votes";
 import { useNavigation } from "@react-navigation/native";
 
-
 const Container = styled.View`
   height: 100%;
   width: 100%;
 `;
-
-// const BackgroundImg = styled.Image`
-//   height: 100%;
-//   width: 100%;
-//   opacity: 0.4;
-//   position: absolute;
-// `; 
 
 const Content = styled.View`
   height: 100%;
@@ -44,13 +35,6 @@ const OriginalTitle = styled.Text`
   font-weight: bold;
   font-size: 15px;
 `;
-
-// const Votes = styled.Text`
-//   color: rgb(220, 220, 220);
-//   font-size: 14px;
-//   font-weight: 500;
-// `;
-
 
 const Overview = styled.Text`
   color: rgb(220, 220, 220);

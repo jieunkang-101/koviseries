@@ -5,7 +5,7 @@ import { Dimensions, ActivityIndicator, ScrollView } from "react-native";
 import BgSlide from "../../components/Movies/BgSlide";
 import SlideTitle from "../../components/SlideTitle";
 import CardSlide from "../../components/CardSlide";
-import VerticalCard from "../../components/Movies/VerticalCard";
+import ScrollCard from "../../components/Movies/ScrollCard";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -20,9 +20,9 @@ const Container = styled.View``;
 const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
   return (
     <ScrollView
+      style={{ backgroundColor: "black" }}
       contentContainerStyle={{
-        backgroundColor: "black",
-        flex: 1,
+        flex: loading ? 1 : "auto",
         justifyContent: loading ? "center" : "flex-start"
       }}
     >
@@ -30,8 +30,8 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
         <ActivityIndicator color="white" />
         ) : (
         <>
+          <SlideTitle title={"Movies Popular"} />
           <BgSlideContainer>
-            <SlideTitle title={"Movies Popular"} />
             <Swiper controlsEnabled={false} loop timeout={5}>
               {popular.map(movie => (
                 <BgSlide
@@ -53,8 +53,7 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
               horizontal={true}
               contentContainerStyle={{
                 paddingLeft: 15,
-                paddingBottom: 30,
-                flexDirection: 'row'
+                paddingBottom: 30,           
               }}
               showsHorizontalScrollIndicator={false}
             >
@@ -71,14 +70,14 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
             <SlideTitle title={"Movies Upcoming"} />
             <ScrollView> 
               {upcoming.map(movie => (
-                  <VerticalCard
-                    key={movie.id}
-                    id={movie.id}
-                    poster={movie.poster_path}
-                    title={movie.title}
-                    releaseDate={movie.release_date}
-                    overview={movie.overview}
-                  />
+                <ScrollCard
+                  key={movie.id}
+                  id={movie.id}
+                  poster={movie.poster_path}
+                  title={movie.title}
+                  releaseDate={movie.release_date}
+                  overview={movie.overview}
+                />
               ))}
             </ScrollView>
           </Container>

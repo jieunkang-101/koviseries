@@ -5,7 +5,6 @@ import Poster from "./Poster";
 import Votes from "./Votes";
 import { TouchableOpacity } from "react-native";
 
-
 const Container = styled.View`
   align-items: center;
   margin-right: 15px;
@@ -16,7 +15,6 @@ const Title = styled.Text`
   font-weight: 500;
   margin: 10px 0px 5px 0px;
 `;
-
 
 const CardSlide = ({ id, poster, title, votes }) => {
   return (
