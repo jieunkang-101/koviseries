@@ -18,7 +18,6 @@ const SearchPresenter = ({ keyword, onChange, onSubmit }) => {
         value={keyword}
         onChange={onChange} 
         onSubmit={onSubmit}
-
       />
     </Container>
   )

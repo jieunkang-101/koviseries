@@ -3,16 +3,46 @@ import SearchPresenter from "./SearchPresenter";
 import { movieApi, tvApi } from "../../api";
 
 const SearchController = () => {
-  const [keyword, setKeyword] = useState("");
-  const onChange = (text) => setKeyword(text);
-  const onSubmit = () => console.log("search for", keyword)
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState({
+    movies: [],
+    moviesError: null,
+    shows: [],
+    showsError: null
+  });
 
+  const onChange = (text) => setQuery(text);
+  // const onSubmit = () => console.log("search for", query)
+  const search = async () => {
+    const [movies, moviesError] = await movieApi.search(query);
+    const [shows, showsError] = await tvApi.search(query);
+    const koreanMovies = movies.filter((items) => {
+      if (!items.original_language) {
+        return "none";
+      }
+      return items.original_language.includes("ko");
+    });
+    const koreanShows = shows.filter((items) => {
+      if (!items.original_language) {
+        return "none";
+      }
+      return items.original_language.includes("ko");
+    });
+    setResults({
+      movies: koreanMovies,
+      shows: koreanShows,
+      moviesError,
+      showsError
+    });
+  };
+  console.log("koreanMovies", results.movies);
+  console.log("koreanShows", results.shows);
 
   return (
     <SearchPresenter 
-      keyword={keyword}
+      keyword={query}
       onChange={onChange} 
-      onSubmit={onSubmit}
+      onSubmit={search}
     />
   )
 };
