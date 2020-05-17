@@ -11,7 +11,11 @@ const Image = styled.Image`
   padding: 5px;
 `;
 
-const Poster = ({ url }) => <Image source={{ uri: apiImage(url) }} />;
+const Poster = ({ url }) => {
+  return (
+    url ? (<Image source={{ uri: apiImage(url) }} />) : (<Image source={require('../assets/default-poster.jpeg')} />)
+  );
+};
 
 Poster.propTypes = {
   url: PropTypes.string

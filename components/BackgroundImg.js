@@ -12,7 +12,11 @@ const Image = styled.Image`
   margin-right: 30px;
 `;
 
-const BackgroundImg = ({ url }) => <Image resizeMode="cover" source={{ uri: apiImage(url) }} />;
+const BackgroundImg = ({ url }) => {
+  return (
+    url ? (<Image source={{ uri: apiImage(url) }} />) : (<Image source={require('../assets/default-bg.jpeg')} />)
+  );
+};
 
 BackgroundImg.propTypes = {
   url: PropTypes.string

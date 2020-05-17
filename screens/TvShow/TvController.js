@@ -5,7 +5,7 @@ import TvPresenter from "./TvPresenter";
 const TvController = () => {
 
   const [shows, setShows] = useState({
-    
+    loading: true,
     today: [],
     todayError: null,
     thisWeek: [],
@@ -39,7 +39,7 @@ const TvController = () => {
   }, []);
 
   console.log(shows)
-  console.log(shows.today);
+  console.log(shows.popular);
 
   return (
     <TvPresenter {...shows} />

@@ -78,10 +78,10 @@ BgSlide.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   originalTitle: PropTypes.string.isRequired,
-  backgroundImage: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string,
   votes: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired
+  poster: PropTypes.string
 };
 
 export default BgSlide

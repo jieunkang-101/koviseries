@@ -5,6 +5,7 @@ import PresenterContainer from "../../components/PresenterContainer";
 import { Dimensions, ScrollView, Text } from "react-native";
 import SlideTitle from "../../components/SlideTitle";
 import BgSlide from "../../components/TvShow/BgSlide";
+// import BgSlideContainer from "../../components/BgSlideContainer";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 const BgSlideContainer = styled.View`
