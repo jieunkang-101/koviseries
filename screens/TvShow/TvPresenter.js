@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import Swiper from "react-native-web-swiper";
 import PresenterContainer from "../../components/PresenterContainer";
 import SlideTitle from "../../components/SlideTitle";
-import BgSlide from "../../components/TvShow/BgSlide";
+import BgSlide from "../../components/BgSlide";
 import BgSlideContainer from "../../components/BgSlideContainer";
 import ScrollViewContainer from "../../components/ScrollViewContainer";
 import CardSlide from "../../components/CardSlide";
@@ -21,8 +21,8 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
               <BgSlide
                 key={show.id}
                 id={show.id}
-                name={show.name}
-                originalName={show.original_name}
+                title={show.name}
+                originalTitle={show.original_name}
                 overview={show.overview}
                 votes={show.vote_average}
                 backgroundImage={show.backdrop_path}
@@ -39,7 +39,7 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
                 key={show.id}
                 id={show.id}
                 poster={show.poster_path}
-                name={show.name}
+                title={show.name}
                 votes={show.vote_average}
               />
             ))}
@@ -51,7 +51,7 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
                 key={show.id}
                 id={show.id}
                 poster={show.poster_path}
-                name={show.name}
+                title={show.name}
                 votes={show.vote_average}
               />
             ))}
@@ -63,7 +63,7 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
                 key={show.id}
                 id={show.id}
                 poster={show.poster_path}
-                name={show.name}
+                title={show.name}
                 votes={show.vote_average}
               />
             ))}

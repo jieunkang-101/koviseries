@@ -4,7 +4,7 @@ import Swiper from "react-native-web-swiper";
 import { ScrollView } from "react-native";
 import PresenterContainer from "../../components/PresenterContainer";
 import BgSlideContainer from "../../components/BgSlideContainer";
-import BgSlide from "../../components/Movies/BgSlide";
+import BgSlide from "../../components/BgSlide";
 import SlideTitle from "../../components/SlideTitle";
 import ScrollViewContainer from "../../components/ScrollViewContainer";
 import CardSlide from "../../components/CardSlide";

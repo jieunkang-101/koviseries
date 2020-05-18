@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
-import BgImg from "../BgImg";
-import Poster from "../Poster";
-import Votes from "../Votes";
+import BgImg from "./BgImg";
+import Poster from "./Poster";
+import Votes from "./Votes";
 import { useNavigation } from "@react-navigation/native";
-import { trimText } from "../../utils";
+import { trimText } from "../utils";
 
 const Container = styled.View`
   height: 100%;
