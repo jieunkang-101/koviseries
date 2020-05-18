@@ -21,8 +21,8 @@ const MoviesPresenter = ({ refreshData, loading, topRated, popular, upcoming }) 
           <Swiper controlsEnabled={false} loop timeout={5}>
             {popular.map(movie => (
               <BgSlide
-                key={movie.id}
                 id={movie.id}
+                key={movie.id}
                 title={movie.title}
                 originalTitle={movie.original_title}
                 overview={movie.overview}
@@ -38,8 +38,8 @@ const MoviesPresenter = ({ refreshData, loading, topRated, popular, upcoming }) 
           <ScrollViewContainer>
             {topRated.map(movie => (
               <CardSlide
-                key={movie.id}
                 id={movie.id}
+                key={movie.id}
                 poster={movie.poster_path}
                 title={movie.title}
                 votes={movie.vote_average}
@@ -50,8 +50,8 @@ const MoviesPresenter = ({ refreshData, loading, topRated, popular, upcoming }) 
           <ScrollView> 
             {upcoming.map(movie => (
               <FlatList
-                key={movie.id}
                 id={movie.id}
+                key={movie.id}
                 poster={movie.poster_path}
                 title={movie.title}
                 releaseDate={movie.release_date}

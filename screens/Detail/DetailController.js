@@ -8,7 +8,7 @@ import { movieApi, tvApi } from "../../api";
 const DetailController = ({ 
   navigation, 
   route: {
-    params: { id, title, originalTitle, backgroundImage, poster, votes, overview }
+    params: { isTv, id, title, originalTitle, backgroundImage, poster, votes, overview }
   } 
 }) => {
   const [detail, setDetail] = useState({
@@ -23,10 +23,16 @@ const DetailController = ({
   });
 
   const getData = async () => {
-    const [getDetail, getDetailError] = await movieApi.movie(id);
-    const [getReview, getReviewError] = await movieApi.review(id);
-    const [getSimilar, getSimilarError] = await movieApi.similar(id);
-    const koreanSimilar = getSimilar.filter((items) => {
+    const [getDetail, getDetailError] = isTv
+      ? await tvApi.show(id)
+      : await movieApi.movie(id);
+    const [getReview, getReviewError] = isTv
+      ? "" 
+      : await movieApi.review(id);
+    const [getSimilar, getSimilarError] = isTv
+      ? ""
+      : await movieApi.similar(id);
+    const koreanSimilar = getSimilar && getSimilar.filter((items) => {
       if (!items.original_language) {
         return "none";
       }

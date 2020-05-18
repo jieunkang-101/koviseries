@@ -43,10 +43,11 @@ const Overview = styled.Text`
   font-weight: 500;
 `;
 
-const BgSlide = ({ id, title, originalTitle, backgroundImage, votes, overview, poster }) => {
+const BgSlide = ({ isTv = false, id, title, originalTitle, backgroundImage, votes, overview, poster }) => {
   const navigation = useNavigation();
   const goToDetail = () =>
   navigation.navigate("Detail", {
+    isTv,
     id,
     title,
     originalTitle,

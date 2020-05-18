@@ -76,9 +76,13 @@ const DetailController = ({ loading, backgroundImage, poster, title, originalTit
           </Info>
         </Container>
       </Header>
+      {loading ? (
+          <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
+        ) : null}
       <Data>
         <DataName>Overview</DataName>
         <DataValue>{overview}</DataValue>
+  
       </Data>
     </PresenterContainer>
 

@@ -19,8 +19,9 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
           <Swiper controlsEnabled={false} loop timeout={5}>
             {popular.map(show => (
               <BgSlide
-                key={show.id}
+                isTv={true}
                 id={show.id}
+                key={show.id}
                 title={show.name}
                 originalTitle={show.original_name}
                 overview={show.overview}
@@ -36,8 +37,9 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
           <ScrollViewContainer>  
             {today.map(show => (
               <CardSlide
-                key={show.id}
+                isTv={true}
                 id={show.id}
+                key={show.id}
                 poster={show.poster_path}
                 title={show.name}
                 votes={show.vote_average}
@@ -48,8 +50,9 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
           <ScrollViewContainer>  
             {thisWeek.map(show => (
               <CardSlide
-                key={show.id}
+                isTv={true}
                 id={show.id}
+                key={show.id}
                 poster={show.poster_path}
                 title={show.name}
                 votes={show.vote_average}
@@ -60,8 +63,9 @@ const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated 
           <ScrollViewContainer>  
             {topRated.map(show => (
               <CardSlide
-                key={show.id}
+                isTv={true}
                 id={show.id}
+                key={show.id}
                 poster={show.poster_path}
                 title={show.name}
                 votes={show.vote_average}

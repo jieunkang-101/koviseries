@@ -24,10 +24,11 @@ const Title = styled.Text`
 //   margin: 10px 0px 5px 0px;
 // `;
 
-const CardSlide = ({ id, poster, title, votes }) => {
+const CardSlide = ({ isTv = false, id, poster, title, votes }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate("Detail", {
+      isTv,
       id,
       title,
       poster,
