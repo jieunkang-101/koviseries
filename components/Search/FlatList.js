@@ -61,7 +61,8 @@ const FlatList = ({ id, poster, title, name, releaseDate, firstAirDate, overview
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate("Detail", {
-      id
+      id,
+      title
     })
   }
   return (

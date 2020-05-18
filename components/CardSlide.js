@@ -28,7 +28,8 @@ const CardSlide = ({ id, poster, title, name, votes }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate("Detail", {
-      id
+      id,
+      title
     })
   }
   return (

@@ -1,13 +1,18 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const DetailController = ({ navigation, route }) => {
-  console.log(navigation);
-  console.log(route);
+const DetailController = ({ 
+  navigation, 
+  route: {
+    params: { id, title }
+  } 
+}) => {
+  // console.log(navigation);
+  // console.log(route);
+  navigation.setOptions({ title });
   return (
     <View>
-      <Text>Detail</Text>
-  
+      <Text>{id}</Text>
     </View>
   )
 };
