@@ -10,9 +10,9 @@ import CardSlide from "../../components/CardSlide";
 
 const Container = styled.View``;
 
-const TvPresenter = ({ loading, popular, today, thisWeek, topRated }) => {
+const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated }) => {
   return (
-    <PresenterContainer loading={loading}>  
+    <PresenterContainer refreshData={refreshData} loading={loading}>  
       <>
         <SlideTitle title={"TV Shows Popular"} />
         <BgSlideContainer>

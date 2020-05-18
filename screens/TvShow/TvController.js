@@ -42,7 +42,7 @@ const TvController = () => {
   // console.log(shows.popular);
 
   return (
-    <TvPresenter {...shows} />
+    <TvPresenter refreshData={getData} {...shows} />
   )
 };
 

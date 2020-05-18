@@ -40,7 +40,7 @@ const MoviesController = () => {
   // }
 
   return (
-    <MoviesPresenter {...movies} />
+    <MoviesPresenter refreshData={getData} {...movies} />
   );
 };
 

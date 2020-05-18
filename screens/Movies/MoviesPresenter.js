@@ -12,9 +12,9 @@ import FlatList from "../../components/Movies/FlatList";
 
 const Container = styled.View``;
 
-const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
+const MoviesPresenter = ({ refreshData, loading, topRated, popular, upcoming }) => {
   return (
-    <PresenterContainer loading={loading}>
+    <PresenterContainer refreshData={refreshData} loading={loading}>
       <>
         <SlideTitle title={"Movies Popular"} />
         <BgSlideContainer>

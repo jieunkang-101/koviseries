@@ -12,8 +12,10 @@ const SearchController = () => {
   });
 
   const onChange = (text) => setQuery(text);
-  // const onSubmit = () => console.log("search for", query)
   const search = async () => {
+    if (query === "") {
+      return;
+    }
     const [movies, moviesError] = await movieApi.search(query);
     const [shows, showsError] = await tvApi.search(query);
 
@@ -37,10 +39,22 @@ const SearchController = () => {
       moviesError,
       showsError
     });
+
+    setQuery("");
   };
   console.log(results);
   console.log("koreanMovies", results.movies);
   console.log("koreanShows", results.shows);
+
+
+  const refresh = () => {
+    setResults({
+      movies: [],
+      moviesError: null,
+      shows: [],
+      showsError: null
+    })
+  };
 
   return (
     <SearchPresenter 
@@ -48,6 +62,7 @@ const SearchController = () => {
       keyword={query}
       onChange={onChange} 
       onSubmit={search}
+      refreshData={refresh}
     />
   )
 };

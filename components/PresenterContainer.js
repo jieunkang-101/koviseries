@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { ScrollView, ActivityIndicator, RefreshControl } from "react-native";
 
-const PresenterContainer = ({loading, children, contentContainerStyle}) => {
+const PresenterContainer = ({ 
+  refreshData, 
+  loading, 
+  children, 
+  contentContainerStyle 
+  }) => {
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = async () => {
     setRefreshing(true);
-    setTimeout(() => setRefreshing(false), 5000);
+    await refreshData();
+    setRefreshing(false);
   };
-
   return (
     <ScrollView
       refreshControl={
@@ -34,6 +39,7 @@ PresenterContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   contentContainerStyle: PropTypes.object,
+  refreshData: PropTypes.func
 };
 
 export default PresenterContainer;
