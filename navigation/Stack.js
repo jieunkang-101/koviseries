@@ -11,7 +11,7 @@ const StackNavigator = () => (
     // mode="modal"
     screenOptions={{
       headerStyle: {
-        backgroundColor: "black",
+        backgroundColor: "green",
         borderBottomColor: "black",
         shadowColor: "black"
       },

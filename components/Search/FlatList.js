@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "../Poster";
+import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from "react-native";
 import { trimText, trimDate } from "../../utils";
 
@@ -57,8 +58,14 @@ const Overview = styled.Text`
 `;
 
 const FlatList = ({ id, poster, title, name, releaseDate, firstAirDate, overview }) => {
+  const navigation = useNavigation();
+  const goToDetail = () => {
+    navigation.navigate("Detail", {
+      id
+    })
+  }
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={goToDetail}>
       <Container>
         <Poster url = {poster} />
         <Data>
@@ -81,7 +88,7 @@ const FlatList = ({ id, poster, title, name, releaseDate, firstAirDate, overview
 
 FlatList.propTypes = {
   id: PropTypes.number.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.string,
   title: PropTypes.string,
   name: PropTypes.string,
   releaseDate: PropTypes.string,

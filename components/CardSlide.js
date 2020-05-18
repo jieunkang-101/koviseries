@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
 import Votes from "./Votes";
+import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from "react-native";
 import { trimText } from "../utils";
 
@@ -24,8 +25,14 @@ const Name = styled.Text`
 `;
 
 const CardSlide = ({ id, poster, title, name, votes }) => {
+  const navigation = useNavigation();
+  const goToDetail = () => {
+    navigation.navigate("Detail", {
+      id
+    })
+  }
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={goToDetail}> 
       <Container>
         <Poster url = {poster} />
         {title ? (<Title>{trimText(title, 12)}</Title>) : null}

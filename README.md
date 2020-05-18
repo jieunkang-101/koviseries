@@ -33,7 +33,7 @@ The product will offer search functionality.
 </details>
 
 ### :small_orange_diamond: Minimum-Viable Product
-* App for an Android 
+* App for an ios
 * List of movies and TV shows (from API call)
 * Detail view of a specific movie or TV show
 * Capability to search by title
@@ -55,6 +55,7 @@ The product will offer search functionality.
 * User authorization (admin)
 * Capability to manage movies, TV shows and reviews by admin
 * Capability to sort by most popular or highest rated
+* App for an andriod and web
 
 ### :small_orange_diamond: Specs
 <details>
@@ -85,14 +86,10 @@ The product will offer search functionality.
 + [React Native](https://reactnative.dev/) 
 + [Expo](https://docs.expo.io/)
 + [React Navigation v.5.2.6](https://reactnavigation.org/)
-+ [@Expo/vector-icons](https://docs.expo.io/guides/icons/)
++ [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 + [axios](https://github.com/axios/axios)
 + [npm](https://www.npmjs.com/) 
 + [Webpack](https://webpack.js.org/)
-+ [Firebase](https://firebase.google.com/)
-+ [Firestore](https://firebase.google.com/docs/firestore)
-+ [bootstrap 4.4.1](https://getbootstrap.com/)
-
 
 
 ## 5. Support and Contact

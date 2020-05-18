@@ -15,10 +15,10 @@ const makeRequest = (path, params) =>
   })
 
 
-// const pageOne =  axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&with_original_language=ko&sort_by=popularity.desc&page=1`);
-// const pageTwo = axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&with_original_language=ko&sort_by=popularity.desc&page=2`);
+// const pageOne =  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&with_original_language=ko&page=1`);
+// const pageTwo = axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&with_original_language=ko&page=2`);
 
-// const makeRequest = () => 
+// const makeMutiRequest = () => 
 //   axios.all([pageOne, pageTwo])
 //   .then(axios.spread((...res) => {
 //     const resOne = res[0];
@@ -27,6 +27,18 @@ const makeRequest = (path, params) =>
 //     const responses = resOne.data.results.concat(resTwo.data.results);
 //     console.log(responses);
 //   }))
+// const getMutiResults = async (path, params = {}) => {
+//   try {
+//     const {
+//       data: { results }
+//     } = await makeMutiRequest(path, params);
+//     return [results || data, null];
+//   } catch (e) {
+//     console.log(e);
+//     return [null, e];
+//   }
+// };
+
 
 
 const getResults = async (path, params = {}) => {
