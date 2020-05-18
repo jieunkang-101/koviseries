@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "../Poster";
 import { TouchableOpacity } from "react-native";
-import { trimText, formatDate } from "../../utils";
+import { trimText, trimDate } from "../../utils";
 
 const Container = styled.View`
   padding: 0px 15px;
@@ -41,13 +41,13 @@ const Text = styled.Text`
 const ReleaseDate = styled.Text`
   color: white;
   opacity: 0.8;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const FirstAirDate = styled.Text`
   color: white;
   opacity: 0.8;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const Overview = styled.Text`
@@ -67,10 +67,10 @@ const FlatList = ({ id, poster, title, name, releaseDate, firstAirDate, overview
           {name ? (<Name>{trimText(name, 27)}</Name>) : null}
           {name ? <Text>TV Show</Text> : null}
           {releaseDate ? (
-            <ReleaseDate>{formatDate(releaseDate)}</ReleaseDate>
+            <ReleaseDate>{trimDate(releaseDate)}</ReleaseDate>
             ) : null}
           {firstAirDate ? (
-            <ReleaseDate>{formatDate(firstAirDate)}</ReleaseDate>
+            <ReleaseDate>{trimDate(firstAirDate)}</ReleaseDate>
             ) : null}  
           <Overview>{trimText(overview, 70)}</Overview>
         </Data>

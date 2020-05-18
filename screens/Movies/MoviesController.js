@@ -3,7 +3,7 @@ import { movieApi } from "../../api";
 import MoviesPresenter from "./MoviesPresenter";
 
 const MoviesController = () => {
-
+  // const [refreshing, setRefreshing] = useState(false);
   const [movies, setMovies] = useState({
     loading: true,
     topRated: [],
@@ -33,8 +33,11 @@ const MoviesController = () => {
     getData();
   }, []);
 
-  // console.log(movies)
-  // console.log(movies.upcoming)
+  // const onRefresh = async () => {
+  //   setRefreshing(true);
+  //   await getData();
+  //   setRefreshing(false);
+  // }
 
   return (
     <MoviesPresenter {...movies} />

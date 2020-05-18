@@ -9,3 +9,8 @@ export const formatDate = (date) => {
     year: "numeric"
   });
 };
+
+export const trimDate = (date) => {
+  const theDate = new Date(date);
+  return theDate.getFullYear();
+}
