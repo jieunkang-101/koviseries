@@ -60,7 +60,9 @@ export const movieApi = {
   topRated: () => getResults("/movie/top_rated"),
   upcoming: () => getResults("/movie/upcoming", { sort_by: "release_date.asc" }),
   search: (query) => getResults("/search/movie", { query }),
-  movie: (id) => getResults(`/movie/${id}`, { append_to_response: "videos" })
+  movie: (id) => getResults(`/movie/${id}`, { append_to_response: "videos" }),
+  review: (id) =>  getResults(`/movie/${id}/reviews`),
+  similar: (id) => getResults(`/movie/${id}/similar`)
 };
 
 export const tvApi = {
