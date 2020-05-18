@@ -29,7 +29,10 @@ const CardSlide = ({ id, poster, title, name, votes }) => {
   const goToDetail = () => {
     navigation.navigate("Detail", {
       id,
-      title
+      title,
+      poster,
+      name,
+      votes
     })
   }
   return (
