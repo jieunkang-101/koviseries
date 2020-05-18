@@ -28,8 +28,8 @@ const SearchPresenter = ({ refreshData, movies, shows, keyword, onChange, onSubm
         <ScrollView> 
           {movies.map(movie => (
             <FlatList
-              key={movie.id}
               id={movie.id}
+              key={movie.id}
               poster={movie.poster_path}
               title={movie.title}
               releaseDate={movie.release_date}
@@ -40,8 +40,9 @@ const SearchPresenter = ({ refreshData, movies, shows, keyword, onChange, onSubm
         <ScrollView> 
           {shows.map(show => (
             <FlatList
-              key={show.id}
+              isTv = {true}
               id={show.id}
+              key={show.id}
               poster={show.poster_path}
               name={show.name}
               firstAirDate={show.first_air_date}

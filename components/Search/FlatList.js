@@ -57,10 +57,11 @@ const Overview = styled.Text`
   opacity: 0.8;
 `;
 
-const FlatList = ({ id, poster, title, name, releaseDate, firstAirDate, overview }) => {
+const FlatList = ({ isTv = false, id, poster, title, name, releaseDate, firstAirDate, overview }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate("Detail", {
+      isTv,
       id,
       poster,
       title,
