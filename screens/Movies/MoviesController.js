@@ -33,8 +33,8 @@ const MoviesController = () => {
     getData();
   }, []);
 
-  console.log(movies)
-  console.log(movies.upcoming)
+  // console.log(movies)
+  // console.log(movies.upcoming)
 
   return (
     <MoviesPresenter {...movies} />

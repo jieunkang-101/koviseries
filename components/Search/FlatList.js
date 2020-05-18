@@ -18,12 +18,33 @@ const Data = styled.View`
 `;
 
 const Title = styled.Text`
+  font-size: 17px;
   color: white;
   font-weight: bold;
-  margin: 10px 0px 10px 0px;
+  margin: 5px 0px 10px 0px;
+`;
+
+const Name = styled.Text`
+  font-size: 17px;
+  color: white;
+  font-weight: bold;
+  margin: 5px 0px 10px 0px;
+`;
+
+const Text = styled.Text`
+  color: rgb(245, 161, 144);
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 7px;
 `;
 
 const ReleaseDate = styled.Text`
+  color: white;
+  opacity: 0.8;
+  font-size: 12px;
+`;
+
+const FirstAirDate = styled.Text`
   color: white;
   opacity: 0.8;
   font-size: 12px;
@@ -35,30 +56,37 @@ const Overview = styled.Text`
   opacity: 0.8;
 `;
 
-
-const ScrollCard = ({ id, poster, title, releaseDate, overview }) => {
+const FlatList = ({ id, poster, title, name, releaseDate, firstAirDate, overview }) => {
   return (
     <TouchableOpacity>
       <Container>
         <Poster url = {poster} />
         <Data>
-          <Title>{trimText(title, 27)}</Title>
+          {title ? (<Title>{trimText(title, 27)}</Title>) : null}
+          {title ? <Text>Movie</Text> : null}
+          {name ? (<Name>{trimText(name, 27)}</Name>) : null}
+          {name ? <Text>TV Show</Text> : null}
           {releaseDate ? (
             <ReleaseDate>{formatDate(releaseDate)}</ReleaseDate>
             ) : null}
-          <Overview>{trimText(overview, 80)}</Overview>
+          {firstAirDate ? (
+            <ReleaseDate>{formatDate(firstAirDate)}</ReleaseDate>
+            ) : null}  
+          <Overview>{trimText(overview, 70)}</Overview>
         </Data>
       </Container>
     </TouchableOpacity>
   )
 }
 
-ScrollCard.propTypes = {
+FlatList.propTypes = {
   id: PropTypes.number.isRequired,
   poster: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  name: PropTypes.string,
   releaseDate: PropTypes.string,
+  firstAirDate: PropTypes.string,
   overview: PropTypes.string.isRequired
 };
 
-export default ScrollCard
+export default FlatList

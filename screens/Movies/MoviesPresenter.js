@@ -8,7 +8,7 @@ import BgSlide from "../../components/Movies/BgSlide";
 import SlideTitle from "../../components/SlideTitle";
 import ScrollViewContainer from "../../components/ScrollViewContainer";
 import CardSlide from "../../components/CardSlide";
-import ScrollCard from "../../components/Movies/ScrollCard";
+import FlatList from "../../components/Movies/FlatList";
 
 const Container = styled.View``;
 
@@ -49,7 +49,7 @@ const MoviesPresenter = ({ loading, topRated, popular, upcoming }) => {
           <SlideTitle title={"Movies Upcoming"} />
           <ScrollView> 
             {upcoming.map(movie => (
-              <ScrollCard
+              <FlatList
                 key={movie.id}
                 id={movie.id}
                 poster={movie.poster_path}

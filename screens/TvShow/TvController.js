@@ -38,8 +38,8 @@ const TvController = () => {
     getData();
   }, []);
 
-  console.log(shows)
-  console.log(shows.popular);
+  // console.log(shows)
+  // console.log(shows.popular);
 
   return (
     <TvPresenter {...shows} />
