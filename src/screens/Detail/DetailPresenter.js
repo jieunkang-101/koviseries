@@ -6,6 +6,7 @@ import HeartButton from "../../components/Detail/HeartButton";
 import BgImg from "../../components/BgImg";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
+import ReviewSlide from "../../components/Detail/ReviewSlide";
 import CardSlide from "../../components/CardSlide";
 import ScrollViewContainer from "../../components/ScrollViewContainer";
 import Link from "../../components/Detail/Link";
@@ -16,7 +17,6 @@ import { useNavigation } from '@react-navigation/native';
 const Container = styled.View`
   flex-direction: row;
   align-items: center;
-  top: 30px;
 `;
 
 const Info = styled.View`
@@ -81,7 +81,7 @@ const Underline = styled.View`
 
 const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
   // console.log("result", result);
-  // console.log("review", reviews);
+  console.log("review", reviews);
   // console.log("similar", similar);
   // const navigation = useNavigation();
   // const goToFavorite = () => {
@@ -147,9 +147,22 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
             <DataValue>{result.overview}</DataValue>
           </>  
         ) : null}
-    
-
-
+        {reviews.length > 0 ? (
+          <>
+            <Underline />
+            <DataName>Reviews</DataName> 
+          </>
+        ) : null}
+        <ScrollViewContainer>  
+          {reviews.map(movie => (
+            <ReviewSlide
+              id={movie.id}
+              key={movie.id}
+              author={movie.author}
+              content={movie.content}
+            />
+          ))}
+        </ScrollViewContainer>
         {result.imdb_id ? (
           <>
             <Underline />
@@ -181,14 +194,14 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
         ) : null}
       
       <Underline />
-      <DataName>Similar Movies</DataName>
+      {similar.length > 0 ? <DataName>Similar Movies</DataName> : null}
         <ScrollViewContainer>  
           {similar.map(movie => (
             <CardSlide
               id={movie.id}
               key={movie.id}
               poster={movie.poster_path}
-              title={movie.name}
+              title={movie.title}
               votes={movie.vote_average}
             />
           ))}
