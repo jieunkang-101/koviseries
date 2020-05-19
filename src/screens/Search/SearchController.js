@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchPresenter from "./SearchPresenter";
-import { movieApi, tvApi } from "../../api";
+import { movieApi, tvApi } from "../../../api";
 
 const SearchController = () => {
   const [query, setQuery] = useState("");

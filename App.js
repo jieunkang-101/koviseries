@@ -5,7 +5,7 @@ import { Asset } from "expo-asset";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
-import Stack from "./navigation/Stack";
+import Stack from "./src/navigation/Stack";
  
 export default function App() {
   const [isReady, setIsReady] = useState(false);
@@ -13,7 +13,7 @@ export default function App() {
   const cacheResourcesAsync = () => {
     const images = [
       "https://images.unsplash.com/photo-1588892862675-802c046d2ed9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-      require("./assets/splash.jpg")
+      require("./assets/splash.png")
     ];
     const cacheImages = images.map(image => {
       if (typeof image === "string") {
@@ -31,9 +31,6 @@ export default function App() {
   const onFinish = () => setIsReady(true);
 
   return isReady ? (
-    // <View style={{ flex: 1 }}>
-    //   <Image source={require('./assets/splash.jpg')} />
-    // </View>
     <>
       <NavigationContainer>
         <Stack />

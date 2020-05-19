@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { tvApi } from "../../api";
+import { tvApi } from "../../../api";
 import TvPresenter from "./TvPresenter";
 
 const TvController = () => {

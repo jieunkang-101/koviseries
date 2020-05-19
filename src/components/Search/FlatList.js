@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Poster from "../Poster";
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from "react-native";
-import { trimText, trimDate } from "../../utils";
+import { trimText, trimDate } from "../../../utils";
 
 const Container = styled.View`
   padding: 0px 15px;

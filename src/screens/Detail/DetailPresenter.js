@@ -1,13 +1,14 @@
 import React from "react";
+import { Dimensions, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import PresenterContainer from "../../components/PresenterContainer";
+import HeartButton from "../../components/Detail/HeartButton";
 import BgImg from "../../components/BgImg";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import Link from "../../components/Detail/Link";
-import { Dimensions, ActivityIndicator } from "react-native";
-import { formatDate, formatNumber } from "../../utils";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { formatDate, formatNumber } from "../../../utils";
+// import { FontAwesome5 } from "@expo/vector-icons";
 
 const Container = styled.View`
   flex-direction: row;
@@ -81,7 +82,8 @@ const DetailController = ({ openBrowser, loading, result }) => {
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
-        <FontAwesome5 name="heart" color="white" size={28} />
+        <HeartButton />
+        {/* <FontAwesome5 name="heart" color="white" size={28} /> */}
         <Container>
           <Poster url={result.poster} />
           <Info>

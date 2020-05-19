@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DetailPresenter from "./DetailPresenter";
-import { movieApi, tvApi } from "../../api";
+import { movieApi, tvApi } from "../../../api";
 import * as WebBrowser from "expo-web-browser";
 
 const DetailController = ({ 

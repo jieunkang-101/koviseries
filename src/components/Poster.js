@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
-import { apiImage } from "../api";
+import { apiImage } from "../../api";
 
 const Image = styled.Image`
   width: 100px;
@@ -13,7 +13,7 @@ const Image = styled.Image`
 
 const Poster = ({ url }) => {
   return (
-    url ? (<Image source={{ uri: apiImage(url) }} />) : (<Image source={require('../assets/default-poster.jpeg')} />)
+    url ? (<Image source={{ uri: apiImage(url) }} />) : (<Image source={require('../../assets/default-poster.jpeg')} />)
   );
 };
 

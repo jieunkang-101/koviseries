@@ -6,7 +6,7 @@ import BgImg from "./BgImg";
 import Poster from "./Poster";
 import Votes from "./Votes";
 import { useNavigation } from "@react-navigation/native";
-import { trimText } from "../utils";
+import { trimText } from "../../utils";
 
 const Container = styled.View`
   height: 100%;

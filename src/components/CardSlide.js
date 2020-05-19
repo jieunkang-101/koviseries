@@ -5,7 +5,7 @@ import Poster from "./Poster";
 import Votes from "./Votes";
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from "react-native";
-import { trimText } from "../utils";
+import { trimText } from "../../utils";
 
 const Container = styled.View`
   align-items: center;
