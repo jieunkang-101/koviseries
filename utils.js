@@ -16,5 +16,5 @@ export const trimDate = (date) => {
 }
 
 export const formatNumber = (number) => {
-  return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(number)
+  return new Intl.NumberFormat('en-us', { maximumSignificantDigits: 3 }).format(number)
 }

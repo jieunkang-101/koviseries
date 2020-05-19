@@ -6,6 +6,8 @@ import HeartButton from "../../components/Detail/HeartButton";
 import BgImg from "../../components/BgImg";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
+import CardSlide from "../../components/CardSlide";
+import ScrollViewContainer from "../../components/ScrollViewContainer";
 import Link from "../../components/Detail/Link";
 import { formatDate, formatNumber } from "../../../utils";
 
@@ -77,11 +79,10 @@ const Underline = styled.View`
   border-bottom-width: 1;
 `;
 
-const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, favorite }) => {
+const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
   // console.log("result", result);
   // console.log("review", reviews);
   // console.log("similar", similar);
-  console.log("fav", favorite)
   // const navigation = useNavigation();
   // const goToFavorite = () => {
   //   navigation.navigate("Favorites", {
@@ -124,10 +125,10 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, favor
           <DataInline> ▪︎ Episode Runtime: {" "}{result.episode_run_time} min</DataInline>
         ) : null}
         {result.budget ? (
-          <DataInline> ▪︎ Budget: {" "}{formatNumber(result.budget)}</DataInline>
+          <DataInline> ▪︎ Budget: {" "}${formatNumber(result.budget)} USD</DataInline>
         ) : null}
         {result.revenue ? (
-          <DataInline> ▪︎ Revenue: {" "}{formatNumber(result.revenue)}</DataInline>
+          <DataInline> ▪︎ Revenue: {" "}${formatNumber(result.revenue)} USD</DataInline>
         ) : null}
         {result.genres?.length > 0 ? ( 
           <DataInline> ▪︎ Genres: {" "}
@@ -146,6 +147,9 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, favor
             <DataValue>{result.overview}</DataValue>
           </>  
         ) : null}
+    
+
+
         {result.imdb_id ? (
           <>
             <Underline />
@@ -175,7 +179,21 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, favor
             ))}
           </>
         ) : null}
-      </Data>
+      
+      <Underline />
+      <DataName>Similar Movies</DataName>
+        <ScrollViewContainer>  
+          {similar.map(movie => (
+            <CardSlide
+              id={movie.id}
+              key={movie.id}
+              poster={movie.poster_path}
+              title={movie.name}
+              votes={movie.vote_average}
+            />
+          ))}
+        </ScrollViewContainer>    
+      </Data>  
     </PresenterContainer>
   )
 };

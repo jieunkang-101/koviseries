@@ -75,7 +75,7 @@ The product will offer search functionality.
   $ git clone https://github.com/jieunkang-101/koviseries
   $ cd koviseries
   $ npm install  
-  $ npm run start
+  $ npm run start or $ expo start
 ```
 
 ### :small_orange_diamond: Use
