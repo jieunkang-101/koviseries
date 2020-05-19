@@ -19,7 +19,7 @@ const TabNavigator = ({ navigation, route }) => {
       fontSize: 24,
       // headerShown: name !== "TV",
       headerStyle: {
-        backgroundColor: name === "Favs" ? "blue" : "green"
+        backgroundColor: name === "Favorites" ? "rgb(128, 77, 68)" : "green"
       }
     });  
   }, [route]);
@@ -34,7 +34,7 @@ const TabNavigator = ({ navigation, route }) => {
             return <FontAwesome5 name="tv" color={focused ? "white" : "grey"} size={22} />
           } else if (route.name === "Search") {
             return <FontAwesome5 name="search" color={focused ? "white" : "grey"} size={24} />
-          } else if (route.name === "Favs") {
+          } else if (route.name === "Favorites") {
             return <FontAwesome5 name="heart" color={focused ? "white" : "grey"} size={24} />
           }
         }
@@ -50,7 +50,7 @@ const TabNavigator = ({ navigation, route }) => {
     <Tabs.Screen name="Movies" component={Movies} />
     <Tabs.Screen name="TV" component={Tv} />
     <Tabs.Screen name="Search" component={Search} />
-    <Tabs.Screen name="Favs" component={Favs} />
+    <Tabs.Screen name="Favorites" component={Favs} />
   </Tabs.Navigator>
   );
 };
