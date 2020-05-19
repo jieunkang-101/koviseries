@@ -32,12 +32,6 @@ const MoviesController = () => {
     getData();
   }, []);
 
-  // const onRefresh = async () => {
-  //   setRefreshing(true);
-  //   await getData();
-  //   setRefreshing(false);
-  // }
-
   return (
     <MoviesPresenter refreshData={getData} {...movies} />
   );

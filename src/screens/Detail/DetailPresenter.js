@@ -77,10 +77,11 @@ const Underline = styled.View`
   border-bottom-width: 1;
 `;
 
-const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, onPress }) => {
+const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, favorite }) => {
   // console.log("result", result);
-  console.log("review", reviews);
-  console.log("similar", similar);
+  // console.log("review", reviews);
+  // console.log("similar", similar);
+  console.log("fav", favorite)
   // const navigation = useNavigation();
   // const goToFavorite = () => {
   //   navigation.navigate("Favorites", {
@@ -92,7 +93,6 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, onPre
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
-        {/* <TouchableOpacity onPress={onPress}> */}
           <HeartButton result={result} />
         {/* </TouchableOpacity> */}
         {/* <TouchableOpacity onPress={goToFavorite}> 
@@ -108,8 +108,8 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, onPre
         </Container>
       </Header>
       {loading ? (
-          <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
-        ) : null}
+        <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
+      ) : null}
       <Data>
         {result.release_date ? (
           <DataInline> ▪︎ Release Date: {" "}{formatDate(result.release_date)}</DataInline>

@@ -1,12 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from "react"
+import HeartButton from "../../components/Detail/HeartButton";
+import { View, Text} from "react-native";
 
-const Favs = ({ navigation, route }) => {
-  console.log(navigation);
-  console.log(route.params.result);
+const Favs = () => {
+  
   return (
     <View>
-      <Text></Text>
+      <Text>favorite</Text>
     </View>
   )
 }

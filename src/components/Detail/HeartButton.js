@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { PropTypes } from 'prop-types';
 import styled from "styled-components/native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { cos, add } from "react-native-reanimated";
+import { Entypo } from '@expo/vector-icons'; 
 
 const Container = styled.View`
   position: absolute;
@@ -13,39 +12,45 @@ const Container = styled.View`
 `;
 
 const HeartButton = ({ result }) => {
-  
+  console.log(result);
   const [addedToFavorite, setAddedToFavorite] = useState({
     selected: false,
-    favorite: null
+    favorites: []
   });
 
   addToFavorite = () => {
-    setAddedToFavorite({
-      selected: !addedToFavorite.selected,
-      favorite: result
-    })
+    if (addedToFavorite.favorites.length == 0) {
+      setAddedToFavorite({
+        selected: !addedToFavorite.selected,
+        favorites: addedToFavorite.favorites.concat({
+          id: result.id,
+          title: result.title,
+          poster: result.poster
+        })
+      })
+    } else {
+      setAddedToFavorite({
+        selected: !addedToFavorite.selected,
+        favorites: []
+      })
+    }  
   }  
-
-  removeFromFavorite = () => {
-    setAddedToFavorite({
-      selected: !addedToFavorite.selected,
-      favorite: null
-    })
-  }
-  const toggle = addedToFavorite.favorite == null ? addToFavorite : removeFromFavorite;
-  console.log("favorites", addedToFavorite)
+  console.log("added", addedToFavorite)
 
   return (
-    <TouchableOpacity enabled="true" onPress={toggle}>
+    <TouchableOpacity enabled="true" onPress={addToFavorite}>
       <Container>
-        <FontAwesome5 name="heart" color="white" size={28} />
+        <Entypo 
+          name={addedToFavorite.selected ? "heart" : "heart-outlined"}
+          color={addedToFavorite.selected ? "red" : "white"}
+          size={28} />
       </Container>
     </TouchableOpacity>
   );
 };
 
 HeartButton.propTypes = {
-  favorite: PropTypes.object
+  favorites: PropTypes.array
 };
 
 export default HeartButton;
