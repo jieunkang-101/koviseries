@@ -8,7 +8,7 @@ import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import Link from "../../components/Detail/Link";
 import { formatDate, formatNumber } from "../../../utils";
-import { FontAwesome5 } from "@expo/vector-icons";
+
 import { useNavigation } from '@react-navigation/native';
 
 const Container = styled.View`
@@ -77,28 +77,27 @@ const Underline = styled.View`
   border-bottom-width: 1;
 `;
 
-const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
-  console.log("result", result);
-  console.log("review", reviews);
-  console.log("similar", similar);
-  const navigation = useNavigation();
-  const goToFavorite = () => {
-    navigation.navigate("Favorites", {
-      result
-    })
-  }
+const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, onPress }) => {
+  // console.log("result", result);
+  // console.log("review", reviews);
+  // console.log("similar", similar);
+  // const navigation = useNavigation();
+  // const goToFavorite = () => {
+  //   navigation.navigate("Favorites", {
+  //     result
+  //   })
+  // }
 
   return (
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
-        {/* <HeartButton 
-          color={"white"}
-          selectedColor={"red"} 
-        /> */}
-        <TouchableOpacity onPress={goToFavorite}> 
+        {/* <TouchableOpacity onPress={onPress}> */}
+          <HeartButton result={result} />
+        {/* </TouchableOpacity> */}
+        {/* <TouchableOpacity onPress={goToFavorite}> 
           <FontAwesome5 name="heart" color="white" size={28} />
-        </TouchableOpacity>  
+        </TouchableOpacity>   */}
         <Container>
           <Poster url={result.poster} />
           <Info>

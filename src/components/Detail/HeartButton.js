@@ -1,142 +1,55 @@
-// import React, { useEffect, useState } from "react";
-// import { PropTypes } from 'prop-types';
-// import { FontAwesome5 } from "@expo/vector-icons";
-// import { TouchableOpacity } from 'react-native';
-// import styled from "styled-components/native";
+import React, { useEffect, useState } from "react";
+import { TouchableOpacity } from "react-native";
+import { PropTypes } from 'prop-types';
+import styled from "styled-components/native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { cos, add } from "react-native-reanimated";
 
-// const Container = styled.View`
-//   position: absolute;
-//   flex-direction: column;
-//   align-items: flex-end;
-//   justify-content: flex-end;
-// `;
+const Container = styled.View`
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+`;
 
+const HeartButton = ({ result }) => {
+  console.log("result", result);
+  
+  const [addedToFavorite, setAddedToFavorite] = useState({
+    selected: false,
+    favorites: []
+  });
 
-// const HeartButton = ({ id }) => {
-//   const [addedToFavorite, setAddedToFavorite] = useState({
-//     selected: false,
-//     favorites: []
-//   });
+  addToFavorite = () => {
+    setAddedToFavorite({
+      selected: true,
+      favorites: result
+    })
+  }  
 
-//   addToFavorite = () => {
-//     setAddedToFavorite({
-//       selected: true,
-//       favorites: 
-//     });
-//   }  
+  console.log("favorites", addedToFavorite)
+  // removeFromFavorite = () => {
 
-//   removeFromFavorite = () => {
+  // }
 
-//   }
+  // useEffect(() => {
+  //   addToFavorite();
+  // }, []);
 
-//   useEffect(() => {
-//     addToFavorite();
-//   }, [id]);
+  // onPress={addToFavorite}
+  
 
-//   return (
-//     <TouchableOpacity
-//     onPress={addToFavorite}
-//     >
-//       <Container>
-//       {/* <View>
-//         <Icon
-//           name={addedToFavorite ? 'heart' : 'heart-o'}
-//           color={addedToFavorite ? selectedColor : color}
-//           size={18}
-//         />
-
-//         <Icon
-//           name="heart-o"
-//           size={18}
-//           color={color}
-//           style={[
-//             { display: addedToFavorite ? 'flex' : 'none' },
-//             styles.selectedColor,
-//           ]}
-//         />
-//       </View> */}
-//       </Container>
-//     </TouchableOpacity>
-//   );
-// };
-
+  return (
+    <TouchableOpacity enabled="true" onPress={addToFavorite}>
+      <Container>
+        <FontAwesome5 name="heart" color="white" size={28} />
+      </Container>
+    </TouchableOpacity>
+  );
+};
 
 // HeartButton.propTypes = {
-// color: PropTypes.string.isRequired,
-// selectedColor: PropTypes.string.isRequired,
-// onPress: PropTypes.func,
+//   onPress: PropTypes.func
 // };
 
-// export default HeartButton;
-
-
-
-
-
-
-
-// // export default class HeartButton extends Component {
-// //   constructor(props) {
-// //   	super(props);
-// //   	this.state = { addedToFavorite: false };
-
-// //     // this.addToFavorite = this.addToFavorite.bind(this);
-// //   }
-
-// //   componentWillReceiveProps(nextProps) {
-// //     this.setState({ addedToFavorite: nextProps.selected });
-// //   }
-
-// //   addToFavorite = () => {
-// //     this.setState({
-// //       addedToFavorite: !this.state.addedToFavorite,
-// //     }, () => {
-// //       this.props.onPress();
-// //     });
-// //   }
-
-// //   render() {
-// //   	const { addedToFavorite } = this.state;
-// //   	const { color, selectedColor, onPress } = this.props;
-
-// //     return (
-// //       <TouchableOpacity
-// //         onPress={addToFavorite}
-// //       >
-// //         <Container>
-// //         <View>
-// //           <Icon
-// //             name={addedToFavorite ? 'heart' : 'heart-o'}
-// //             color={addedToFavorite ? selectedColor : color}
-// //             size={18}
-// //           />
-
-// //           <Icon
-// //             name="heart-o"
-// //             size={18}
-// //             color={color}
-// //             style={[
-// //               { display: addedToFavorite ? 'flex' : 'none' },
-// //               styles.selectedColor,
-// //             ]}
-// //           />
-// //         </View>
-// //         </Container>
-// //       </TouchableOpacity>
-// //     );
-// //   }
-// // }
-
-// // HeartButton.propTypes = {
-// //   color: PropTypes.string.isRequired,
-// //   selectedColor: PropTypes.string.isRequired,
-// //   onPress: PropTypes.func,
-// // };
-
-// // const styles = StyleSheet.create({
-// //   selectedColor: {
-// //     position: 'absolute',
-// //     left: 0,
-// //     top: 0,
-// //   },
-// // });
+export default HeartButton;

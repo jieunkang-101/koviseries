@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StackActions } from "@react-navigation/native";
+// import { StackActions } from "@react-navigation/native";
 import Tabs from "./Tabs";
 import Detail from "../screens/Detail/DetailController";
 
