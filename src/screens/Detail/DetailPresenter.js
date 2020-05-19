@@ -79,8 +79,8 @@ const Underline = styled.View`
 
 const DetailPresenter = ({ openBrowser, loading, result, reviews, similar, onPress }) => {
   // console.log("result", result);
-  // console.log("review", reviews);
-  // console.log("similar", similar);
+  console.log("review", reviews);
+  console.log("similar", similar);
   // const navigation = useNavigation();
   // const goToFavorite = () => {
   //   navigation.navigate("Favorites", {

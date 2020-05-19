@@ -13,34 +13,30 @@ const Container = styled.View`
 `;
 
 const HeartButton = ({ result }) => {
-  console.log("result", result);
   
   const [addedToFavorite, setAddedToFavorite] = useState({
     selected: false,
-    favorites: []
+    favorite: null
   });
 
   addToFavorite = () => {
     setAddedToFavorite({
-      selected: true,
-      favorites: result
+      selected: !addedToFavorite.selected,
+      favorite: result
     })
   }  
 
+  removeFromFavorite = () => {
+    setAddedToFavorite({
+      selected: !addedToFavorite.selected,
+      favorite: null
+    })
+  }
+  const toggle = addedToFavorite.favorite == null ? addToFavorite : removeFromFavorite;
   console.log("favorites", addedToFavorite)
-  // removeFromFavorite = () => {
-
-  // }
-
-  // useEffect(() => {
-  //   addToFavorite();
-  // }, []);
-
-  // onPress={addToFavorite}
-  
 
   return (
-    <TouchableOpacity enabled="true" onPress={addToFavorite}>
+    <TouchableOpacity enabled="true" onPress={toggle}>
       <Container>
         <FontAwesome5 name="heart" color="white" size={28} />
       </Container>
@@ -48,8 +44,8 @@ const HeartButton = ({ result }) => {
   );
 };
 
-// HeartButton.propTypes = {
-//   onPress: PropTypes.func
-// };
+HeartButton.propTypes = {
+  favorite: PropTypes.object
+};
 
 export default HeartButton;
