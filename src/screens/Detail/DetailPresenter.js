@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, ActivityIndicator } from "react-native";
+import { Dimensions, ActivityIndicator, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import PresenterContainer from "../../components/PresenterContainer";
 import HeartButton from "../../components/Detail/HeartButton";
@@ -8,7 +8,8 @@ import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import Link from "../../components/Detail/Link";
 import { formatDate, formatNumber } from "../../../utils";
-// import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 
 const Container = styled.View`
   flex-direction: row;
@@ -76,14 +77,28 @@ const Underline = styled.View`
   border-bottom-width: 1;
 `;
 
-const DetailController = ({ openBrowser, loading, result }) => {
+const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
+  console.log("result", result);
+  console.log("review", reviews);
+  console.log("similar", similar);
+  const navigation = useNavigation();
+  const goToFavorite = () => {
+    navigation.navigate("Favorites", {
+      result
+    })
+  }
 
   return (
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
-        <HeartButton />
-        {/* <FontAwesome5 name="heart" color="white" size={28} /> */}
+        {/* <HeartButton 
+          color={"white"}
+          selectedColor={"red"} 
+        /> */}
+        <TouchableOpacity onPress={goToFavorite}> 
+          <FontAwesome5 name="heart" color="white" size={28} />
+        </TouchableOpacity>  
         <Container>
           <Poster url={result.poster} />
           <Info>
@@ -166,4 +181,4 @@ const DetailController = ({ openBrowser, loading, result }) => {
   )
 };
 
-export default DetailController;
+export default DetailPresenter;

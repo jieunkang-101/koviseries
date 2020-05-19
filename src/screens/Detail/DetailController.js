@@ -23,9 +23,11 @@ const DetailController = ({
       videos: {
         results: []
       }
-    }
+    },
+    reviews: [],
+    similar: []
   });
-  console.log(id)
+  // console.log(id)
 
   const getData = async () => {
     const [getDetail, getDetailError] = isTv
@@ -43,20 +45,20 @@ const DetailController = ({
       }
       return items.original_language.includes("ko");
     });
-    console.log(koreanSimilar);
+
     setDetail({
       loading: false,
       result: {
         ...getDetail,
-        ...getReview,
-        ...getSimilar,
         title: getDetail.title || getDetail.name,
         originalTitle: getDetail.original_title || getDetail.original_name,
         backgroundImage: getDetail.backdrop_path,
         poster: getDetail.poster_path,
         overview: getDetail.overview,
         votes: getDetail.vote_average
-      }  
+      },
+      reviews: getReview,
+      similar: koreanSimilar
     });
   }
 

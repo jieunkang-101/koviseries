@@ -16,13 +16,15 @@ const Text = styled.Text`
   opacity: 0.8;
 `;
 
-const Link = ({ onPress, text, icon }) => (
-  <TouchableOpacity onPress={onPress}>
-    <Container>
-      <FontAwesome name={icon} color="white" size={30} />
-      <Text style={{ color: "white" }}>{text}</Text>
-    </Container>
-  </TouchableOpacity>
-);
+const Link = ({ onPress, text, icon }) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Container>
+        <FontAwesome name={icon} color="white" size={30} />
+        <Text style={{ color: "white" }}>{text}</Text>
+      </Container>
+    </TouchableOpacity>
+  );
+};
 
 export default Link;

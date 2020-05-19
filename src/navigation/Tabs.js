@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Movies from "../screens/Movies/MoviesController";
 import Tv from "../screens/TvShow/TvController";
 import Search from "../screens/Search/SearchController";
-import Favs from "../screens/Favs";
+import Favs from "../screens/Favorites/FavsController";
 import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Tabs = createBottomTabNavigator();

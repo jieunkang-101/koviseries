@@ -3,7 +3,6 @@ import { movieApi } from "../../../api";
 import MoviesPresenter from "./MoviesPresenter";
 
 const MoviesController = () => {
-  // const [refreshing, setRefreshing] = useState(false);
   const [movies, setMovies] = useState({
     loading: true,
     topRated: [],
