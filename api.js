@@ -1,7 +1,7 @@
 import axios from "axios";
 import { TMDB_KEY } from 'react-native-dotenv';
 
-console.log(TMDB_KEY);
+
 
 const makeRequest = (path, params) => 
     axios.get(`https://api.themoviedb.org/3${path}`, {

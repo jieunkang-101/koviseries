@@ -5,6 +5,7 @@ import BgImg from "../../components/BgImg";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import { Dimensions, ActivityIndicator } from "react-native";
+import { formatDate, formatNumber } from "../../utils";
 
 const Container = styled.View`
   flex-direction: row;
@@ -39,50 +40,93 @@ const Header = styled.View`
 
 const Data = styled.View`
   margin-top: 30px;
-  padding: 0px 30px;
+  padding: 30px 20px 0px 25px;
+`;
+
+const DataInline = styled.Text`
+  color: white;
+  opacity: 0.8;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 16px;
 `;
 
 const DataName = styled.Text`
-  margin-top: 30px;
+  margin-top: 10px;
   color: white;
   opacity: 0.8;
   font-weight: 800;
   margin-bottom: 15px;
+  font-size: 18px;
 `;
 
 const DataValue = styled.Text`
   color: white;
   opacity: 0.8;
   font-weight: 500;
+  font-size: 16px;
+`;
+
+const Underline = styled.View`
+  margin: 20px 0px 20px 0px;
+  border-bottom-color: rgb(128, 77, 68);
+  border-bottom-width: 1;
 `;
 
 
-
-const DetailController = ({ loading, backgroundImage, poster, title, originalTitle, votes, overview }) => {
-
-
-
+const DetailController = ({ loading, result }) => {
 
   return (
     <PresenterContainer loading={false}>
       <Header>
-        <BgImg url={backgroundImage} />
+        <BgImg url={result.backgroundImage} />
         <Container>
-          <Poster url={poster} />
+          <Poster url={result.poster} />
           <Info>
-            <Title>{title}</Title>
-            <OriginalTitle>| {originalTitle}</OriginalTitle>
-            {votes ? <Votes votes={votes} /> : null }
+            <Title>{result.title}</Title>
+            <OriginalTitle>| {result.originalTitle}</OriginalTitle>
+            {result.votes ? <Votes votes={result.votes} /> : null }
           </Info>
         </Container>
       </Header>
       {loading ? (
           <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
         ) : null}
+
       <Data>
+        {result.release_date ? (
+          <DataInline> ▪︎ Release Date: {" "}{formatDate(result.release_date)}</DataInline>
+        ) : null}
+        {result.first_air_date ? (
+          <DataInline> ▪︎  First Air Date: {" "}{formatDate(result.first_air_date)}</DataInline>
+        ) : null}
+        {result.runtime ? (
+          <DataInline> ▪︎ Runtime: {" "}{result.runtime} min</DataInline>
+        ) : null}
+        {result.episode_run_time && result.episode_run_time.length !== 0 ? (
+          <DataInline> ▪︎ Episode Runtime: {" "}{result.episode_run_time} min</DataInline>
+        ) : null}
+        {result.budget ? (
+          <DataInline> ▪︎ Budget: {" "}{formatNumber(result.budget)}</DataInline>
+        ) : null}
+        {result.revenue ? (
+          <DataInline> ▪︎ Revenue: {" "}{formatNumber(result.revenue)}</DataInline>
+        ) : null}
+        {result.genres?.length > 0 ? ( 
+          <DataInline> ▪︎ Genres: {" "}
+            {result.genres.map(genre => (
+              "• " + genre.name + " "            
+            ))}
+          </DataInline>
+        ) : null}
+        {result.number_of_episodes ? (
+          <DataInline> ▪︎ Seasons {result.number_of_seasons} ‣ Episodes {result.number_of_episodes}</DataInline>
+        ) : null}
+        
+        <Underline />
         <DataName>Overview</DataName>
-        <DataValue>{overview}</DataValue>
-  
+        <DataValue>{result.overview}</DataValue>
+        <Underline />
       </Data>
     </PresenterContainer>
 

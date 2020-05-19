@@ -8,19 +8,26 @@ import { movieApi, tvApi } from "../../api";
 const DetailController = ({ 
   navigation, 
   route: {
-    params: { isTv, id, title, originalTitle, backgroundImage, poster, votes, overview }
+    params: { isTv, id, title, originalTitle, backgroundImage, poster, votes, releaseDate, firstAirDate, overview }
   } 
 }) => {
   const [detail, setDetail] = useState({
     loading: true,
-    title,
-    originalTitle,
-    backgroundImage,
-    poster,
-    overview,
-    votes
-    
+    result: {
+      title,
+      originalTitle,
+      backgroundImage,
+      poster,
+      releaseDate,
+      firstAirDate,
+      overview,
+      votes,
+      videos: {
+        results: []
+      }
+    }
   });
+  console.log(id)
 
   const getData = async () => {
     const [getDetail, getDetailError] = isTv
@@ -41,6 +48,7 @@ const DetailController = ({
     console.log(koreanSimilar);
     setDetail({
       loading: false,
+      result: {
         ...getDetail,
         ...getReview,
         ...getSimilar,
@@ -50,6 +58,7 @@ const DetailController = ({
         poster: getDetail.poster_path,
         overview: getDetail.overview,
         votes: getDetail.vote_average
+      }  
     });
   }
 
