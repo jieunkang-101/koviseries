@@ -4,6 +4,7 @@ import PresenterContainer from "../../components/PresenterContainer";
 import BgImg from "../../components/BgImg";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
+import Link from "../../components/Detail/Link";
 import { Dimensions, ActivityIndicator } from "react-native";
 import { formatDate, formatNumber } from "../../utils";
 
@@ -40,7 +41,7 @@ const Header = styled.View`
 
 const Data = styled.View`
   margin-top: 30px;
-  padding: 30px 20px 0px 25px;
+  padding: 30px 20px 10px 25px;
 `;
 
 const DataInline = styled.Text`
@@ -73,8 +74,7 @@ const Underline = styled.View`
   border-bottom-width: 1;
 `;
 
-
-const DetailController = ({ loading, result }) => {
+const DetailController = ({ openBrowser, loading, result }) => {
 
   return (
     <PresenterContainer loading={false}>
@@ -92,7 +92,6 @@ const DetailController = ({ loading, result }) => {
       {loading ? (
           <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
         ) : null}
-
       <Data>
         {result.release_date ? (
           <DataInline> ▪︎ Release Date: {" "}{formatDate(result.release_date)}</DataInline>
@@ -122,14 +121,44 @@ const DetailController = ({ loading, result }) => {
         {result.number_of_episodes ? (
           <DataInline> ▪︎ Seasons {result.number_of_seasons} ‣ Episodes {result.number_of_episodes}</DataInline>
         ) : null}
-        
         <Underline />
-        <DataName>Overview</DataName>
-        <DataValue>{result.overview}</DataValue>
-        <Underline />
+        {result.overview ? (
+          <>
+            <DataName>Overview</DataName>
+            <DataValue>{result.overview}</DataValue>
+          </>  
+        ) : null}
+        {result.imdb_id ? (
+          <>
+            <Underline />
+            <DataName>Links</DataName>
+            <Link
+              text={"IMDB Page"}
+              icon={"imdb"}
+              onPress={() =>
+                openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)
+              }
+            />
+          </>
+        ) : null}
+        {result.videos.results?.length > 0 ? (
+          <>
+            <Underline />
+            <DataName>Videos</DataName>
+            {result.videos.results.map(video => (
+              <Link
+                text={video.name}
+                key={video.id}
+                icon={"youtube"}
+                onPress={() =>
+                  openBrowser(`https://www.youtube.com/watch?v=${video.key}`)
+                }
+              />
+            ))}
+          </>
+        ) : null}
       </Data>
     </PresenterContainer>
-
   )
 };
 
