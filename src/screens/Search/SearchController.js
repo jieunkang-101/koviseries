@@ -42,10 +42,6 @@ const SearchController = () => {
 
     setQuery("");
   };
-  console.log(results);
-  console.log("koreanMovies", results.movies);
-  console.log("koreanShows", results.shows);
-
 
   const refresh = () => {
     setResults({

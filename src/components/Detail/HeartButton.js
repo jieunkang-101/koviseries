@@ -6,16 +6,13 @@ import { Entypo } from "@expo/vector-icons";
 import FavoriteContext from "../FavoriteContext";
 
 const Container = styled.View`
-  position: absolute;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
   justify-content: flex-end;
 `;
 
 const HeartButton = ({ result }) => {
   const { isFavorite, toggleFavoriteId } = useContext(FavoriteContext);
   const isFav = isFavorite(result.id);
-  console.log(result);
 
   return (
     <TouchableOpacity
@@ -25,16 +22,12 @@ const HeartButton = ({ result }) => {
       <Container>
         <Entypo
           name={isFav ? "heart" : "heart-outlined"}
-          color={isFav ? "red" : "white"}
+          color={isFav ? "rgb(240, 105, 74)" : "white"}
           size={28}
         />
       </Container>
     </TouchableOpacity>
   );
-};
-
-HeartButton.propTypes = {
-  favorites: PropTypes.array
 };
 
 export default HeartButton;

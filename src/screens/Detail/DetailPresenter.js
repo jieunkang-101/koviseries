@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, ActivityIndicator, TouchableOpacity } from "react-native";
+import { Dimensions, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import PresenterContainer from "../../components/PresenterContainer";
 import HeartButton from "../../components/Detail/HeartButton";
@@ -11,8 +11,6 @@ import CardSlide from "../../components/CardSlide";
 import ScrollViewContainer from "../../components/ScrollViewContainer";
 import Link from "../../components/Detail/Link";
 import { formatDate, formatNumber } from "../../../utils";
-
-import { useNavigation } from '@react-navigation/native';
 
 const Container = styled.View`
   flex-direction: row;
@@ -80,25 +78,12 @@ const Underline = styled.View`
 `;
 
 const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
-  // console.log("result", result);
-  // console.log("review", reviews);
-  // console.log("similar", similar);
-  // const navigation = useNavigation();
-  // const goToFavorite = () => {
-  //   navigation.navigate("Favorites", {
-  //     result
-  //   })
-  // }
 
   return (
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
           <HeartButton result={result} />
-        {/* </TouchableOpacity> */}
-        {/* <TouchableOpacity onPress={goToFavorite}> 
-          <FontAwesome5 name="heart" color="white" size={28} />
-        </TouchableOpacity>   */}
         <Container>
           <Poster url={result.poster} />
           <Info>
@@ -140,21 +125,21 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
         {result.number_of_episodes ? (
           <DataInline> ▪︎ Seasons {result.number_of_seasons} ‣ Episodes {result.number_of_episodes}</DataInline>
         ) : null}
-        <Underline />
         {result.overview ? (
           <>
+            <Underline />
             <DataName>Overview</DataName>
             <DataValue>{result.overview}</DataValue>
           </>  
         ) : null}
-        {reviews.length > 0 ? (
+        {reviews?.length > 0 ? (
           <>
             <Underline />
             <DataName>Reviews</DataName> 
           </>
         ) : null}
         <ScrollViewContainer>  
-          {reviews.map(movie => (
+          {reviews && reviews.map(movie => (
             <ReviewSlide
               id={movie.id}
               key={movie.id}
@@ -192,11 +177,10 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
             ))}
           </>
         ) : null}
-      
-      <Underline />
-      {similar.length > 0 ? <DataName>Similar Movies</DataName> : null}
+      {similar?.length > 0 ? <DataName>Similar Movies</DataName> : null}
+        <Underline />
         <ScrollViewContainer>  
-          {similar.map(movie => (
+          {similar && similar.map(movie => (
             <CardSlide
               id={movie.id}
               key={movie.id}
