@@ -9,8 +9,8 @@ const Container = styled.View`
   align-items: center;
   justify-content: flex-end;
   margin-right: 15px;
-  border: 2px
-  border-color: white;
+  border: 0.5px
+  border-color: grey;
   width: 300px;
   height: 200px;
 `;
@@ -29,13 +29,12 @@ const Content = styled.Text`
   opacity: 0.8;
 `;
   
-  // margin: 10px 0px 5px 0px;
 const ReviewSlide = ({ id, author, content, url }) => {
 
   return (
     <Container>
       <Author>{author}</Author> 
-      <Content>{trimText(content, 200)}</Content>
+      <Content>{trimText(content, 150)}</Content>
     </Container>
 
   );

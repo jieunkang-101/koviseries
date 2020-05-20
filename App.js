@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Image, StatusBar } from "react-native";
-import { AppLoading } from 'expo';
+import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import Stack from "./src/navigation/Stack";
- 
+import { FavoriteProvider } from "./src/components/FavoriteContext";
+
 export default function App() {
   const [isReady, setIsReady] = useState(false);
 
@@ -26,22 +27,24 @@ export default function App() {
     const fonts = [Ionicons.font];
     const cacheFonts = fonts.map(font => Font.loadAsync(font));
     return Promise.all([cacheImages, cacheFonts]);
-  }  
+  };
 
   const onFinish = () => setIsReady(true);
 
   return isReady ? (
     <>
-      <NavigationContainer>
-        <Stack />
-      </NavigationContainer>
+      <FavoriteProvider>
+        <NavigationContainer>
+          <Stack />
+        </NavigationContainer>
+      </FavoriteProvider>
       <StatusBar barStyle="light-content" />
     </>
   ) : (
-    <AppLoading   
-      startAsync={cacheResourcesAsync} 
-      onFinish={onFinish} 
-      onError={console.error} 
+    <AppLoading
+      startAsync={cacheResourcesAsync}
+      onFinish={onFinish}
+      onError={console.error}
     />
-  );  
+  );
 }

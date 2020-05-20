@@ -3,15 +3,27 @@ import DetailPresenter from "./DetailPresenter";
 import { movieApi, tvApi } from "../../../api";
 import * as WebBrowser from "expo-web-browser";
 
-const DetailController = ({ 
-  navigation, 
+const DetailController = ({
+  navigation,
   route: {
-    params: { isTv, id, title, originalTitle, backgroundImage, poster, votes, releaseDate, firstAirDate, overview }
-  } 
+    params: {
+      isTv,
+      id,
+      title,
+      originalTitle,
+      backgroundImage,
+      poster,
+      votes,
+      releaseDate,
+      firstAirDate,
+      overview
+    }
+  }
 }) => {
   const [detail, setDetail] = useState({
     loading: true,
     result: {
+      id,
       title,
       originalTitle,
       backgroundImage,
@@ -33,18 +45,20 @@ const DetailController = ({
     const [getDetail, getDetailError] = isTv
       ? await tvApi.show(id)
       : await movieApi.movie(id);
-    const [getReview, getReviewError] = isTv
+    const [getReview, getReviewError] = isTv 
       ? "" 
       : await movieApi.review(id);
     const [getSimilar, getSimilarError] = isTv
       ? ""
       : await movieApi.similar(id);
-    const koreanSimilar = getSimilar && getSimilar.filter((items) => {
-      if (!items.original_language) {
-        return "none";
-      }
-      return items.original_language.includes("ko");
-    });
+    const koreanSimilar =
+      getSimilar &&
+      getSimilar.filter(items => {
+        if (!items.original_language) {
+          return "none";
+        }
+        return items.original_language.includes("ko");
+      });
 
     setDetail({
       loading: false,
@@ -60,12 +74,15 @@ const DetailController = ({
       reviews: getReview,
       similar: koreanSimilar
     });
-  }
-  console.log(detail);
+  };
+  // console.log(detail);
 
-  useEffect(() => {
-    getData();
-  }, [id]);
+  useEffect(
+    () => {
+      getData();
+    },
+    [id]
+  );
 
   React.useLayoutEffect(() => {
     navigation.setOptions({ title });
@@ -75,9 +92,7 @@ const DetailController = ({
     await WebBrowser.openBrowserAsync(url);
   };
 
-  return (
-    <DetailPresenter openBrowser={openBrowser} {...detail} />
-  );
+  return <DetailPresenter openBrowser={openBrowser} {...detail} />;
 };
 
 export default DetailController;

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { TouchableOpacity } from "react-native";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
 import styled from "styled-components/native";
-import { Entypo } from '@expo/vector-icons'; 
+import { Entypo } from "@expo/vector-icons";
+import FavoriteContext from "../FavoriteContext";
 
 const Container = styled.View`
   position: absolute;
@@ -12,38 +13,21 @@ const Container = styled.View`
 `;
 
 const HeartButton = ({ result }) => {
+  const { isFavorite, toggleFavoriteId } = useContext(FavoriteContext);
+  const isFav = isFavorite(result.id);
   console.log(result);
-  const [addedToFavorite, setAddedToFavorite] = useState({
-    selected: false,
-    favorites: []
-  });
-
-  addToFavorite = () => {
-    if (addedToFavorite.favorites.length == 0) {
-      setAddedToFavorite({
-        selected: !addedToFavorite.selected,
-        favorites: addedToFavorite.favorites.concat({
-          id: result.id,
-          title: result.title,
-          poster: result.poster
-        })
-      })
-    } else {
-      setAddedToFavorite({
-        selected: !addedToFavorite.selected,
-        favorites: []
-      })
-    }  
-  }  
-  console.log("added", addedToFavorite)
 
   return (
-    <TouchableOpacity enabled="true" onPress={addToFavorite}>
+    <TouchableOpacity
+      enabled="true"
+      onPress={() => toggleFavoriteId(result.id)}
+    >
       <Container>
-        <Entypo 
-          name={addedToFavorite.selected ? "heart" : "heart-outlined"}
-          color={addedToFavorite.selected ? "red" : "white"}
-          size={28} />
+        <Entypo
+          name={isFav ? "heart" : "heart-outlined"}
+          color={isFav ? "red" : "white"}
+          size={28}
+        />
       </Container>
     </TouchableOpacity>
   );
