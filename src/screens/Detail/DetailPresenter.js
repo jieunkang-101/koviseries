@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, ActivityIndicator } from "react-native";
+import { Dimensions, ActivityIndicator, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import PresenterContainer from "../../components/PresenterContainer";
 import HeartButton from "../../components/Detail/HeartButton";
@@ -12,9 +12,16 @@ import ScrollViewContainer from "../../components/ScrollViewContainer";
 import Link from "../../components/Detail/Link";
 import { formatDate, formatNumber } from "../../../utils";
 
+const Header = styled.View`
+  height: ${Dimensions.get("window").height / 4}px;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
 const Container = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
 `;
 
 const Info = styled.View`
@@ -34,12 +41,6 @@ const OriginalTitle = styled.Text`
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 10px;
-`;
-
-const Header = styled.View`
-  height: ${Dimensions.get("window").height / 4}px;
-  align-items: center;
-  justify-content: flex-end;
 `;
 
 const Data = styled.View`
@@ -82,8 +83,7 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
-        <Container>          
-          <Poster url={result.poster} />
+        <Container>                  
           <Info>            
             <Title>{result.title}</Title>
             <OriginalTitle>| {result.originalTitle}</OriginalTitle>
@@ -93,10 +93,10 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
       </Header>
       {loading ? (
         <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
-      ) : null}
-      
+      ) : null}   
       <Data>
-      <HeartButton result={result} />
+        <HeartButton result={result} />
+        
         {result.release_date ? (
           <DataInline> ▪︎ Release Date: {" "}{formatDate(result.release_date)}</DataInline>
         ) : null}
@@ -140,12 +140,14 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
         ) : null}
         <ScrollViewContainer>  
           {reviews && reviews.map(movie => (
-            <ReviewSlide
-              id={movie.id}
-              key={movie.id}
-              author={movie.author}
-              content={movie.content}
-            />
+            <TouchableOpacity onPress={() => openBrowser(movie.url)}>
+              <ReviewSlide
+                id={movie.id}
+                key={movie.id}
+                author={movie.author}
+                content={movie.content}
+              />
+            </TouchableOpacity>
           ))}
         </ScrollViewContainer>
         {result.imdb_id ? (
@@ -177,18 +179,22 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
             ))}
           </>
         ) : null}
-      {similar?.length > 0 ? <DataName>Similar Movies</DataName> : null}
-        <Underline />
-        <ScrollViewContainer>  
-          {similar && similar.map(movie => (
-            <CardSlide
-              id={movie.id}
-              key={movie.id}
-              poster={movie.poster_path}
-              title={movie.title}
-              votes={movie.vote_average}
-            />
-          ))}
+        {similar?.length > 0 ? (
+          <>
+            <Underline />
+            <DataName>Similar Movies</DataName>
+          </>  
+          ) : null}       
+          <ScrollViewContainer>  
+            {similar && similar.map(movie => (
+              <CardSlide
+                id={movie.id}
+                key={movie.id}
+                poster={movie.poster_path}
+                title={movie.title}
+                votes={movie.vote_average}
+              />
+            ))}
         </ScrollViewContainer>    
       </Data>  
     </PresenterContainer>

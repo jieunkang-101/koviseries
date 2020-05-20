@@ -19,7 +19,8 @@ const TabNavigator = ({ navigation, route }) => {
       // fontSize: 25,
       // headerShown: name !== "TV",
       headerStyle: {
-        backgroundColor: "rgb(194, 29, 87)"
+        backgroundColor: "rgb(194, 29, 87)",
+        borderBottomColor: "rgb(194, 29, 87)"
       }
     });  
   }, [route]);
