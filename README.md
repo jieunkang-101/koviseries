@@ -1,9 +1,8 @@
 # Koviseries 
-<img src="./assets/icon.png" width="180px" />
-<p align="left">
-  ___________________________
+<p align="right">
+  Initiated May 8th, 2020
 </p>
-Initiated May 8th, 2020
+<img src="./assets/icon.png" width="180px" />
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 ![LastCommit](https://img.shields.io/github/last-commit/jieunkang-101/React-Review-App)

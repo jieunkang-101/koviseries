@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-// import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from "react-native";
 import { trimText } from "../../../utils";
 import { FontAwesome } from '@expo/vector-icons'; 
 
@@ -34,12 +32,11 @@ const Content = styled.Text`
 `;
   
 const ReviewSlide = ({ id, author, content, url }) => {
-
   return (
-      <Container>
-        <Author><FontAwesome name="pencil-square-o" size={24} color="white" /> by. {author}</Author> 
-        <Content>{trimText(content, 110)}</Content>
-      </Container>
+    <Container>
+      <Author><FontAwesome name="pencil-square-o" size={24} color="white" /> by. {author}</Author> 
+      <Content>{trimText(content, 110)}</Content>
+    </Container>
   );
 };
 
