@@ -44,7 +44,6 @@ ReviewSlide.propTypes = {
   id: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
   url: PropTypes.string
 };
 

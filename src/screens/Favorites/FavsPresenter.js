@@ -13,20 +13,25 @@ const Container = styled.View`
 
 const FavsPresenter = () => {
   const { favorites } = useContext(FavoriteContext);
-  console.log(favorites);
 
-  console.log("favorites", favorites);
   return (
-    <PresenterContainer>
+    <PresenterContainer loading={false}>
       <Container>
         {favorites.map(fav => (
+          fav.name ? (
+          <CardList
+            isTv={true}
+            id={fav.id}
+            key={fav.id}
+            poster={fav.poster_path}
+          />
+          ) : (
           <CardList
             id={fav.id}
             key={fav.id}
             poster={fav.poster_path}
-            title={fav.title}
-            votes={fav.vote_average}
           />
+          )
         ))}
       </Container>
     </PresenterContainer>

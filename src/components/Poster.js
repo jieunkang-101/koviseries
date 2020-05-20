@@ -7,7 +7,9 @@ const Image = styled.Image`
   width: 100px;
   height: 160px;
   border-radius: 4px;
-  border: 1px solid #ddd; 
+  border: 1px 
+  border-style: solid;
+  border-color: rgb(145, 122, 116);
   padding: 5px;
 `;
 

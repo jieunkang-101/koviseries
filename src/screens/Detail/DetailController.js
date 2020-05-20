@@ -64,6 +64,7 @@ const DetailController = ({
       loading: false,
       result: {
         ...getDetail,
+        id: getDetail.id,
         title: getDetail.title || getDetail.name,
         originalTitle: getDetail.original_title || getDetail.original_name,
         backgroundImage: getDetail.backdrop_path,
