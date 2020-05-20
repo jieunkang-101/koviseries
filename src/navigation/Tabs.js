@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Movies from "../screens/Movies/MoviesController";
 import Tv from "../screens/TvShow/TvController";
 import Search from "../screens/Search/SearchController";
-import Favs from "../screens/Favorites/FavsPresenter";
+import Favs from "../screens/Favorites/FavsController";
 import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Tabs = createBottomTabNavigator();
@@ -16,10 +16,10 @@ const TabNavigator = ({ navigation, route }) => {
     const name = getHeaderName(route);
     navigation.setOptions({ 
       title: name, 
-      fontSize: 24,
+      // fontSize: 25,
       // headerShown: name !== "TV",
       headerStyle: {
-        backgroundColor: name === "Favorites" ? "rgb(128, 77, 68)" : "green"
+        backgroundColor: "rgb(194, 29, 87)"
       }
     });  
   }, [route]);

@@ -43,7 +43,6 @@ const Header = styled.View`
 `;
 
 const Data = styled.View`
-  margin-top: 30px;
   padding: 30px 20px 10px 25px;
 `;
 
@@ -78,25 +77,26 @@ const Underline = styled.View`
 `;
 
 const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
-
+  
   return (
     <PresenterContainer loading={false}>
       <Header>
         <BgImg url={result.backgroundImage} />
-          <HeartButton result={result} />
-        <Container>
+        <Container>          
           <Poster url={result.poster} />
-          <Info>
+          <Info>            
             <Title>{result.title}</Title>
             <OriginalTitle>| {result.originalTitle}</OriginalTitle>
             {result.votes ? <Votes votes={result.votes} /> : null }
-          </Info>
+          </Info>         
         </Container>
       </Header>
       {loading ? (
         <ActivityIndicator style={{ marginTop: 30 }} color={"white"} />
       ) : null}
+      
       <Data>
+      <HeartButton result={result} />
         {result.release_date ? (
           <DataInline> ▪︎ Release Date: {" "}{formatDate(result.release_date)}</DataInline>
         ) : null}

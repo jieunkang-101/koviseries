@@ -75,7 +75,6 @@ const DetailController = ({
       similar: koreanSimilar
     });
   };
-  // console.log(detail);
 
   useEffect(
     () => {

@@ -13,6 +13,7 @@ const Container = styled.View`
   border-color: grey;
   width: 300px;
   height: 200px;
+  border-radius: 4px;
 `;
 
 const Author = styled.Text`
@@ -33,7 +34,7 @@ const ReviewSlide = ({ id, author, content, url }) => {
 
   return (
     <Container>
-      <Author>{author}</Author> 
+      <Author>Author: {author}</Author> 
       <Content>{trimText(content, 150)}</Content>
     </Container>
 

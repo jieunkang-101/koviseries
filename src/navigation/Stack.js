@@ -10,7 +10,7 @@ const StackNavigator = () => (
     // mode="modal"
     screenOptions={{
       headerStyle: {
-        backgroundColor: "green",
+        backgroundColor: "rgb(194, 29, 87)",
         borderBottomColor: "black",
         shadowColor: "black"
       },
@@ -21,6 +21,6 @@ const StackNavigator = () => (
     <Stack.Screen name="Tab" component={Tabs} options={{gestureEnabled: true}} />
     <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
-)
+);
 
 export default StackNavigator;
