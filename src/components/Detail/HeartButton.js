@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { TouchableOpacity } from "react-native";
-import { PropTypes } from "prop-types";
 import styled from "styled-components/native";
 import { Entypo } from "@expo/vector-icons";
 import FavoriteContext from "../FavoriteContext";
@@ -10,16 +9,12 @@ const Container = styled.View`
 `;
 
 const HeartButton = ({ result }) => {
-  const { isFavorite, toggleFavoriteId } = useContext(FavoriteContext);
-  const isFav = isFavorite(result.id);
+  const { isFavorite, toggleFavorite } = useContext(FavoriteContext);
+  const isFav = isFavorite(result);
   console.log("isFav", isFav);
 
-
   return (
-    <TouchableOpacity
-      enabled="true"
-      onPress={() => toggleFavoriteId(result.id)}
-    >
+    <TouchableOpacity enabled="true" onPress={() => toggleFavorite(result)}>
       <Container>
         <Entypo
           name={isFav ? "heart" : "heart-outlined"}

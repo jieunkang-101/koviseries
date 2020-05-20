@@ -57,8 +57,6 @@ The product will offer search functionality and users can mark as a favorite mov
 * Capability to search by actor name
 * Notification for the latest released movie or TV show
 * Capability to edit a user’s profile (database storage)
-* User registration (database storage, Facebook credentials, Google credentials)
-* User authentication (database, Facebook, Google)
 * User authorization (admin)
 * Capability to manage movies, TV shows and reviews by admin
 * Capability to sort by most popular or highest rated
@@ -121,9 +119,9 @@ The product will offer search functionality and users can mark as a favorite mov
 
 If you have any feedback or concerns, please contact one of the contributors.
 
-### Known Bugs
+### ▫︎  Known Bugs
 There are no known bug at this moment.
 
-### License
+### ▫︎ License
 *This software is licensed under the MIT license*
 Copyright (c) 2020 **_Jieun Kang_**
