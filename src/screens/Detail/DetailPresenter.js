@@ -96,7 +96,6 @@ const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => 
       ) : null}   
       <Data>
         <HeartButton result={result} />
-        
         {result.release_date ? (
           <DataInline> ▪︎ Release Date: {" "}{formatDate(result.release_date)}</DataInline>
         ) : null}
