@@ -1,5 +1,8 @@
 # Koviseries 
 <p align="right">
+  Capstone Project 
+</p>
+<p align="right">
   Initiated May 8th, 2020
 </p>
 <img src="./assets/icon.png" width="180px" />
@@ -54,11 +57,9 @@ The product will offer search functionality and users can mark as a favorite mov
 * Capability to display a list of casts in Movie’s detail view and display a detail view of a certain actor
 * Capability to display a list of similar movies 
 * Capability to search by actor name
-* Notification for the latest released movie or TV show
 * Capability to edit a user’s profile (database storage)
 * User authorization (admin)
 * Capability to manage movies, TV shows and reviews by admin
-* Capability to sort by most popular or highest rated
 
 </details>  
 
@@ -98,19 +99,21 @@ The product will offer search functionality and users can mark as a favorite mov
   * [The Movie Database API v3](https://developers.themoviedb.org/3/getting-started/introduction)
   * [React Native](https://reactnative.dev/) as core stack
   * [Expo](https://expo.io/) to build a native app
+  * [NodeJs](https://nodejs.org/en/)
+  * [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming))
   * [npm](https://www.npmjs.com/) for package management
   * [firebase](https://firebase.google.com/) for database
 
 ### ▫︎ Dependencies:
-  * ract
-  * ract-native
+  * react
+  * react-native
   * react-navigation
+  * react-native-dotenv
   * react-native-web-swiper
   * expo
   * expo-web-browser
   * expo-vector-icon
   * styled-component
-  * react-native-dotenv
   * firebase
   * native-base
 
