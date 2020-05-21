@@ -7,7 +7,6 @@ const Stack = createStackNavigator();
 
 const StackNavigator = () => (
   <Stack.Navigator
-    // mode="modal"
     screenOptions={{
       headerStyle: {
         backgroundColor: "rgb(194, 29, 87)",

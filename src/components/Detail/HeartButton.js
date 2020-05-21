@@ -11,7 +11,6 @@ const Container = styled.View`
 const HeartButton = ({ result }) => {
   const { isFavorite, toggleFavorite } = useContext(FavoriteContext);
   const isFav = isFavorite(result);
-  console.log("isFav", isFav);
 
   return (
     <TouchableOpacity enabled="true" onPress={() => toggleFavorite(result)}>

@@ -18,14 +18,12 @@ const SearchController = () => {
     }
     const [movies, moviesError] = await movieApi.search(query);
     const [shows, showsError] = await tvApi.search(query);
-
     const koreanMovies = movies.filter((items) => {
       if (!items.original_language) {
         return "none";
       }
       return items.original_language.includes("ko");
     });
-
     const koreanShows = shows.filter((items) => {
       if (!items.original_language) {
         return "none";

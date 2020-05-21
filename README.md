@@ -1,19 +1,30 @@
-# Koviseries 
-<p align="right">
-  Capstone Project 
-</p>
-<p align="right">
+<h1 align="center">
+  Koviseries 
+</h1> 
+<h4 align="center">
   Initiated May 8th, 2020
+</h4>
+<h4 align="center">
+  By Jieun Kang
+</h4>
+<p align="center">
+  <img src="./assets/icon.png" width="180px" />
 </p>
-<img src="./assets/icon.png" width="180px" />
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-![LastCommit](https://img.shields.io/github/last-commit/jieunkang-101/React-Review-App)
-![Languages](https://img.shields.io/github/languages/top/jieunkang-101/React-Review-App)
-[![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
-<a href="https://linkedin.com/in/jieun--kang">
-  <img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=plastic&logo=linkedin&colorB=2867B2">
-</a>
+<p align="center">
+  <a href="https://www.repostatus.org/#wip">
+    <img alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." src="https://www.repostatus.org/badges/latest/wip.svg">
+  </a>
+  <a href="#/koviseries/commits/master">
+    <img alt="LastCommit" src="https://img.shields.io/github/last-commit/jieunkang-101/koviseries">
+  </a>
+  <a href="https://lbesson.mit-license.org/">
+    <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-orange.svg">
+  </a>
+  <a href="https://linkedin.com/in/jieun--kang">
+    <img src="https://img.shields.io/badge/-LinkedIn-linkedin.svg?style=flat&logo=linkedin&colorB=0077b5">
+  </a>
+</p>
 
 ---
 
@@ -40,7 +51,7 @@ The product will offer search functionality and users can mark as a favorite mov
 </details>
 
 ### ▫︎ Minimum-Viable Product
-* App for an iOS and Android
+* App for an iOS
 * List of movies and TV shows (from API call)
 * Detail view of a specific movie or TV show
 * Capability to search by title
@@ -96,11 +107,11 @@ The product will offer search functionality and users can mark as a favorite mov
 ## 4. Development
 
 ### ▫︎ Technologies Used:
-  * [The Movie Database API v3](https://developers.themoviedb.org/3/getting-started/introduction)
-  * [React Native](https://reactnative.dev/) as core stack
-  * [Expo](https://expo.io/) to build a native app
   * [NodeJs](https://nodejs.org/en/)
+  * [React Native](https://reactnative.dev/) as core stack
+  * [Expo](https://expo.io/) to build universal native apps for Android, iOS, Web
   * [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming))
+  * [The Movie Database API v3](https://developers.themoviedb.org/3/getting-started/introduction)
   * [npm](https://www.npmjs.com/) for package management
   * [firebase](https://firebase.google.com/) for database
 

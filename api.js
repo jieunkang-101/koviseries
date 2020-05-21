@@ -2,23 +2,22 @@ import axios from "axios";
 import { TMDB_KEY } from 'react-native-dotenv';
 
 const makeRequest = (path, params) => 
-    axios.get(`https://api.themoviedb.org/3${path}`, {
-      params: {
-        ...params,
-        page: 1, 
-        with_original_language: "ko",
-        without_genres: 10749, 
-        api_key: TMDB_KEY
-      }
+  axios.get(`https://api.themoviedb.org/3${path}`, {
+    params: {
+      ...params,
+      page: 1, 
+      with_original_language: "ko",
+      without_genres: 10749, 
+      api_key: TMDB_KEY
+    }
   })
 
 const getResults = async (path, params = {}) => {
   try {
     const {
       data: { results }, 
-      data        //movie(id)'s data doesn't have "results" object
+      data      
     } = await makeRequest(path, params);
-    // console.log(data)
     return [results || data, null];
   } catch (e) {
     console.log(e);

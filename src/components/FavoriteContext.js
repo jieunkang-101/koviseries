@@ -13,7 +13,6 @@ export const FavoriteProvider = ({ children }) => {
   const removeFavorite = favorite =>
     setFavorites(favorites.filter(fav => fav.id !== favorite.id));
 
-  // console.log("list", favorites);
   return (
     <FavoriteContext.Provider
       value={{

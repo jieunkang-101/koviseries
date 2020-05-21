@@ -34,16 +34,14 @@ const TvController = () => {
     });
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  useEffect(
+    () => {
+      getData();
+    }, 
+    []
+  );
 
-  // console.log(shows)
-  // console.log(shows.popular);
-
-  return (
-    <TvPresenter refreshData={getData} {...shows} />
-  )
+  return <TvPresenter refreshData={getData} {...shows} />;
 };
 
 export default TvController;

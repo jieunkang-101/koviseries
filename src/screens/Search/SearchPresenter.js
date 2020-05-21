@@ -9,7 +9,14 @@ const Container = styled.ScrollView`
   background-color: black;
 `;
 
-const SearchPresenter = ({ refreshData, movies, shows, keyword, onChange, onSubmit }) => {
+const SearchPresenter = ({ 
+  refreshData, 
+  movies, 
+  shows, 
+  keyword, 
+  onChange, 
+  onSubmit 
+}) => {
   return (   
     <PresenterContainer   
       loading={false}
@@ -52,8 +59,8 @@ const SearchPresenter = ({ refreshData, movies, shows, keyword, onChange, onSubm
         </ScrollView>
       </Container>
     </PresenterContainer>
-  )
-}
+  );
+};
 
-export default SearchPresenter
+export default SearchPresenter;
 

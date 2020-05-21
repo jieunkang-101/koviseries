@@ -39,7 +39,6 @@ const DetailController = ({
     reviews: [],
     similar: []
   });
-  // console.log(id)
 
   const getData = async () => {
     const [getDetail, getDetailError] = isTv

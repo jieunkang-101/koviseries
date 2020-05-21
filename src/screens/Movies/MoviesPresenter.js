@@ -12,7 +12,13 @@ import FlatList from "../../components/Movies/FlatList";
 
 const Container = styled.View``;
 
-const MoviesPresenter = ({ refreshData, loading, topRated, popular, upcoming }) => {
+const MoviesPresenter = ({ 
+  refreshData, 
+  loading, 
+  topRated, 
+  popular, 
+  upcoming 
+}) => {
   return (
     <PresenterContainer refreshData={refreshData} loading={loading}>
       <>

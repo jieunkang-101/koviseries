@@ -10,7 +10,14 @@ import CardSlide from "../../components/CardSlide";
 
 const Container = styled.View``;
 
-const TvPresenter = ({ refreshData, loading, popular, today, thisWeek, topRated }) => {
+const TvPresenter = ({ 
+  refreshData, 
+  loading, 
+  popular, 
+  today, 
+  thisWeek, 
+  topRated 
+}) => {
   return (
     <PresenterContainer refreshData={refreshData} loading={loading}>  
       <>

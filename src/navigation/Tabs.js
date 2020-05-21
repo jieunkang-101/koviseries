@@ -16,8 +16,6 @@ const TabNavigator = ({ navigation, route }) => {
     const name = getHeaderName(route);
     navigation.setOptions({ 
       title: name, 
-      // fontSize: 25,
-      // headerShown: name !== "TV",
       headerStyle: {
         backgroundColor: "rgb(194, 29, 87)",
         borderBottomColor: "rgb(194, 29, 87)"
@@ -41,7 +39,6 @@ const TabNavigator = ({ navigation, route }) => {
         }
       })}
       tabBarOptions={{
-        // showLabel: false,
         style: {
           backgroundColor: "black",
           borderTopColor: "black"
@@ -55,6 +52,5 @@ const TabNavigator = ({ navigation, route }) => {
   </Tabs.Navigator>
   );
 };
-
 
 export default TabNavigator;

@@ -28,9 +28,12 @@ const MoviesController = () => {
     })
   };
 
-  useEffect(() => {
+  useEffect(
+    () => {
     getData();
-  }, []);
+    }, 
+    []
+  );
 
   return (
     <MoviesPresenter refreshData={getData} {...movies} />

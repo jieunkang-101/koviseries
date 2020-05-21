@@ -4,7 +4,6 @@ import styled from "styled-components/native";
 import PresenterContainer from "../../components/PresenterContainer";
 import HeartButton from "../../components/Detail/HeartButton";
 import BgImg from "../../components/BgImg";
-import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import ReviewSlide from "../../components/Detail/ReviewSlide";
 import CardSlide from "../../components/CardSlide";
@@ -77,8 +76,13 @@ const Underline = styled.View`
   border-bottom-width: 1;
 `;
 
-const DetailPresenter = ({ openBrowser, loading, result, reviews, similar }) => {
-  
+const DetailPresenter = ({ 
+  openBrowser, 
+  loading, 
+  result, 
+  reviews, 
+  similar 
+}) => {
   return (
     <PresenterContainer loading={false}>
       <Header>

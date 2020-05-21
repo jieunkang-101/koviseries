@@ -8,7 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Stack from "./src/navigation/Stack";
 import { FavoriteProvider } from "./src/components/FavoriteContext";
 
-export default function App() {
+const App = () => {
   const [isReady, setIsReady] = useState(false);
 
   const cacheResourcesAsync = () => {
@@ -23,7 +23,6 @@ export default function App() {
         return Asset.fromModule(image).downloadAsync();
       }
     });
-
     const fonts = [Ionicons.font];
     const cacheFonts = fonts.map(font => Font.loadAsync(font));
     return Promise.all([cacheImages, cacheFonts]);
@@ -48,3 +47,5 @@ export default function App() {
     />
   );
 }
+
+export default App;
