@@ -34,7 +34,7 @@
 A mobile application that recommends Korean movies and TV shows.
 
 ### ▫︎ Preview
-<img src="./assets/koviseries-screenshot.gif" width="640px" />
+<img src="./assets/koviseries-screenshot.gif" width="320px" />
 
 ## 2. Scope
 
