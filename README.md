@@ -37,15 +37,15 @@ A mobile application that recommends Korean movies and TV shows.
 <table>
   <tr>
     <td><img src="./assets/screenshots/koviseries-screenshot.gif" width="200px" /></td>
-    <td><img src="./assets/screenshots/movieScreen.png" width="200px" /></td>
-    <td><img src="./assets/screenshots/tvScreen.png" width="200px" /></td>
-    <td><img src="./assets/screenshots/favorites.png" width="200px" /></td>
+    <td><img src="./assets/screenshots/movieScreen.PNG" width="200px" /></td>
+    <td><img src="./assets/screenshots/tvScreen.PNG" width="200px" /></td>
+    <td><img src="./assets/screenshots/favorites.PNG" width="200px" /></td>
   </tr>
   <tr>
-    <td><img src="./assets/screenshots/detail1.png" width="200px" /></td>
-    <td><img src="./assets/screenshots/detail2.png" width="200px" /></td>
-    <td><img src="./assets/screenshots/serach.png" width="200px" /></td>
-    <td><img src="./assets/screenshots/searchResult.png" width="200px" /></td>
+    <td><img src="./assets/screenshots/detail1.PNG" width="200px" /></td>
+    <td><img src="./assets/screenshots/detail2.PNG" width="200px" /></td>
+    <td><img src="./assets/screenshots/serach.PNG" width="200px" /></td>
+    <td><img src="./assets/screenshots/searchResult.PNG" width="200px" /></td>
   </tr>
 </table>
 
