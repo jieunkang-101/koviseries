@@ -7,17 +7,14 @@ import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import Stack from "./src/navigation/Stack";
 import { FavoriteProvider } from "./src/components/FavoriteContext";
-// import "intl";
-// import "intl/locale-data/jsonp/en";
+import 'intl';
+import 'intl/locale-data/jsonp/en';
 
-// if (Platform.OS === "android") {
-//     // See https://github.com/expo/expo/issues/6536 for this issue.
-//     if (typeof (Intl).__disableRegExpRestore === "function") {
-//         (Intl).__disableRegExpRestore();
-//     }
-// }
-
-
+if (Platform.OS === "android") {
+  if (typeof (Intl).__disableRegExpRestore === "function") {
+      (Intl).__disableRegExpRestore();
+  }
+}
 
 const App = () => {
   const [isReady, setIsReady] = useState(false);

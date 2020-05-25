@@ -3,6 +3,7 @@ import DetailPresenter from "./DetailPresenter";
 import { movieApi, tvApi } from "../../../api";
 import * as WebBrowser from "expo-web-browser";
 
+
 const DetailController = ({
   navigation,
   route: {

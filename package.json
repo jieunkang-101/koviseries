@@ -19,6 +19,7 @@
     "expo-font": "~8.1.0",
     "expo-web-browser": "~8.2.0",
     "firebase": "^7.14.4",
+    "intl": "^1.2.5",
     "native-base": "^2.13.12",
     "prop-types": "^15.7.2",
     "react": "~16.9.0",
