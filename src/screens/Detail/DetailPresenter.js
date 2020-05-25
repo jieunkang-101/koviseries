@@ -83,6 +83,7 @@ const DetailPresenter = ({
   reviews, 
   similar 
 }) => {
+  console.log(reviews);
   return (
     <PresenterContainer loading={false}>
       <Header>
@@ -143,14 +144,17 @@ const DetailPresenter = ({
         ) : null}
         <ScrollViewContainer>  
           {reviews && reviews.map(movie => (
-            <TouchableOpacity onPress={() => openBrowser(movie.url)}>
+            // <TouchableOpacity onPress={() => openBrowser(movie.url)}>
               <ReviewSlide
                 id={movie.id}
                 key={movie.id}
                 author={movie.author}
                 content={movie.content}
+                onPress={() => 
+                  openBrowser(`${movie.url}`)
+                }
               />
-            </TouchableOpacity>
+            // </TouchableOpacity>
           ))}
         </ScrollViewContainer>
         {result.imdb_id ? (
@@ -172,8 +176,8 @@ const DetailPresenter = ({
             <DataName>Videos</DataName>
             {result.videos.results.map(video => (
               <Link
-                text={video.name}
                 key={video.id}
+                text={video.name}
                 icon={"youtube"}
                 onPress={() =>
                   openBrowser(`https://www.youtube.com/watch?v=${video.key}`)

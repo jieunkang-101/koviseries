@@ -1,6 +1,6 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import PropTypes from "prop-types";
 import { trimText } from "../../../utils";
 import { FontAwesome } from '@expo/vector-icons'; 
 
@@ -31,20 +31,15 @@ const Content = styled.Text`
   opacity: 0.8;
 `;
   
-const ReviewSlide = ({ id, author, content, url }) => {
+const ReviewSlide = ({ author, content, onPress }) => {
   return (
-    <Container>
-      <Author><FontAwesome name="pencil-square-o" size={24} color="white" /> by. {author}</Author> 
-      <Content>{trimText(content, 110)}</Content>
-    </Container>
+    <TouchableOpacity onPress={onPress}>
+      <Container>
+        <Author><FontAwesome name="pencil-square-o" size={24} color="white" /> by. {author}</Author> 
+        <Content>{trimText(content, 110)}</Content>
+      </Container>
+    </TouchableOpacity>
   );
 };
 
-ReviewSlide.propTypes = {
-  id: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  url: PropTypes.string
-};
-
-export default ReviewSlide
+export default ReviewSlide;
