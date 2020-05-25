@@ -1,7 +1,9 @@
 {
   "expo": {
     "name": "koviseries",
+    "description": "Universal React App (iOS, Android, Web) to discover movies and series.",
     "slug": "koviseries",
+    "privacy": "public",
     "platforms": [
       "ios",
       "android",
@@ -13,7 +15,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +24,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.koviseries",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.koviseries",
+      "versionCode": 1
+    },
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#000000"
+    },
+    "androidNavigationBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#000000"
     }
   }
 }

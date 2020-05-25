@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import styled from "styled-components/native";
+import PropTypes from "prop-types";
 
 const Container = styled.View`
   flex-direction: row;
@@ -25,6 +26,12 @@ const Link = ({ onPress, text, icon }) => {
       </Container>
     </TouchableOpacity>
   );
+};
+
+Link.propTypes = {
+  text: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired
 };
 
 export default Link;

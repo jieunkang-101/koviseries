@@ -18,7 +18,13 @@ const Title = styled.Text`
   margin: 10px 0px 5px 0px;
 `;
 
-const CardSlide = ({ isTv = false, id, poster, title, votes }) => {
+const CardSlide = ({ 
+  isTv = false, 
+  id, 
+  poster, 
+  title, 
+  votes 
+}) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate("Detail", {
@@ -47,4 +53,4 @@ CardSlide.propTypes = {
   votes: PropTypes.number.isRequired
 };
 
-export default CardSlide
+export default CardSlide;

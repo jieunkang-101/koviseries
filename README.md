@@ -147,7 +147,7 @@ The product will offer search functionality and users can mark as a favorite mov
 If you have any feedback or concerns, please contact one of the contributors.
 
 ### ▫︎  Known Bugs
-There are no known bug at this moment.
+There is some bug in search functionality.
 
 ### ▫︎ License
 *This software is licensed under the MIT license*

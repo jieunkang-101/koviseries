@@ -15,7 +15,10 @@ const Image = styled.Image`
 
 const Poster = ({ url }) => {
   return (
-    url ? (<Image source={{ uri: apiImage(url) }} />) : (<Image source={require('../../assets/default-poster.jpeg')} />)
+    url ? (
+      <Image source={{ uri: apiImage(url) }} />
+    ) : (
+      <Image source={require('../../assets/default-poster.jpeg')} />)
   );
 };
 

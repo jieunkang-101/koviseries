@@ -5,7 +5,6 @@ import Poster from "../Poster";
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from "react-native";
 
-
 const Container = styled.View`
   margin: 10px;
 `;

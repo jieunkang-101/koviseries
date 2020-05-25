@@ -3,6 +3,7 @@ import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { trimText } from "../../../utils";
 import { FontAwesome } from '@expo/vector-icons'; 
+import PropTypes from "prop-types";
 
 const Container = styled.View`
   margin-right: 15px;
@@ -40,6 +41,12 @@ const ReviewSlide = ({ author, content, onPress }) => {
       </Container>
     </TouchableOpacity>
   );
+};
+
+ReviewSlide.propTypes = {
+  author: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired
 };
 
 export default ReviewSlide;

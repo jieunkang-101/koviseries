@@ -3,6 +3,7 @@ import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { Entypo } from "@expo/vector-icons";
 import FavoriteContext from "../FavoriteContext";
+import PropTypes from "prop-types";
 
 const Container = styled.View`
   margin-left: auto;
@@ -23,6 +24,10 @@ const HeartButton = ({ result }) => {
       </Container>
     </TouchableOpacity>
   );
+};
+
+HeartButton.proptypes = {
+  result: PropTypes.object.isRequired
 };
 
 export default HeartButton;

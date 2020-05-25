@@ -37,8 +37,13 @@ const Overview = styled.Text`
   opacity: 0.8;
 `;
 
-
-const FlatList = ({ id, poster, title, releaseDate, overview }) => {
+const FlatList = ({ 
+  id, 
+  poster, 
+  title, 
+  releaseDate, 
+  overview 
+}) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate("Detail", {
