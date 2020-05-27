@@ -57,7 +57,7 @@ https://expo.io/@jieunkang-101/koviseries
 </table>
 
 
-## 2. Scope### ▫︎ 
+## 2. Scope
 
 ### ▫︎ Use Case
 <details>
