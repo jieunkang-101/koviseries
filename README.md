@@ -33,6 +33,13 @@
 ### ▫︎ Description
 A mobile application that recommends Korean movies and TV shows.
 
+### ▫︎ Published on Expo
+https://expo.io/@jieunkang-101/koviseries
+
+*scan this QRcode with your Expo mobile app to load this project.* 
+
+<img src="./assets/koviseries-QRcode.png" width="150px" />
+
 ### ▫︎ Preview
 <table>
   <tr>
@@ -50,7 +57,7 @@ A mobile application that recommends Korean movies and TV shows.
 </table>
 
 
-## 2. Scope
+## 2. Scope### ▫︎ 
 
 ### ▫︎ Use Case
 <details>

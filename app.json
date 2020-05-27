@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "koviseries",
-    "description": "Universal React App (iOS, Android, Web) to discover movies and series.",
+    "description": "Universal React App (iOS, Android, Web) to discover Korean movies and TV shows.",
     "slug": "koviseries",
     "privacy": "public",
     "platforms": [
